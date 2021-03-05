@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".Activity.MyInfoActivity"
+    android:background="#EAEAEA">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/my_info_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center|left"
+            android:background="#233045">
+
+            <ImageView
+                android:id="@+id/my_info_back_image_view"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/back_icon"
+                android:tint="@color/white"
+                android:clickable="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="12dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/my_info_text"
+                android:fontFamily="@font/shop_item_font_b"
+                android:textSize="22sp"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/my_info_toolbar_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/shadow_down"
+            android:layout_below="@+id/my_info_toolbar"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/tier_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp"
+            android:elevation="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/my_info_toolbar_shadow">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/my_tier"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/tier_challenger1"
+                    android:layout_marginRight="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/my_tier">
+
+                    <TextView
+                        android:id="@+id/my_name_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="소환사"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="@color/my_info_highlight_color"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/shop_item_font_b"/>
+
+                    <TextView
+                        android:id="@+id/tier_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tier_text"
+                        android:maxLines="1"
+                        android:layout_marginTop="8dp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/shop_item_font"
+                        android:textColor="@color/my_info_light_color"/>
+
+                    <TextView
+                        android:id="@+id/my_tier_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Challenger 1"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/shop_item_font_b"
+                        android:textColor="@color/my_info_rank_text_color"/>
+
+                    <TextView
+                        android:id="@+id/required_level_up_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/collection_exp_text"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_marginTop="12dp"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/shop_item_font_b"
+                        android:textColor="@color/my_info_light_color"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/collection_graph_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp"
+            android:elevation="10dp"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/tier_card_view">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/champion_text"
+                    android:maxLines="1"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/shop_item_font"
+                    android:textColor="@color/my_info_highlight_color"/>
+
+                <com.akexorcist.roundcornerprogressbar.TextRoundCornerProgressBar
+                    android:id="@+id/champ_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    app:rcTextProgressColor="#FFFFFF"
+                    app:rcTextProgressSize="12sp"
+                    app:rcBackgroundPadding="5dp"
+                    app:rcRadius="20dp"
+                    app:rcProgressColor="#03A9F4"
+                    app:rcBackgroundColor="#474747"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/skin_text"
+                    android:maxLines="1"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/shop_item_font"
+                    android:textColor="@color/my_info_highlight_color"/>
+
+                <com.akexorcist.roundcornerprogressbar.TextRoundCornerProgressBar
+                    android:id="@+id/skin_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:rcTextProgressColor="#FFFFFF"
+                    app:rcTextProgressSize="12sp"
+                    app:rcBackgroundPadding="5dp"
+                    app:rcRadius="20dp"
+                    app:rcProgressColor="#FF9800"
+                    app:rcBackgroundColor="#474747" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/my_resource_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp"
+            android:elevation="10dp"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/collection_graph_card_view">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/shop_item_font"
+                    android:text="@string/resource_text"
+                    android:textColor="@color/my_info_highlight_color"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/my_gold_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gold : 0"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/my_info_light_color"
+                    android:fontFamily="@font/shop_item_font_b"/>
+                <TextView
+                    android:id="@+id/my_blue_gem_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/my_info_light_color"
+                    android:text="Blue gem : 0"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/shop_item_font_b"
+                    android:layout_below="@+id/gold_per_click_text"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="4dp"/>
+                <TextView
+                    android:id="@+id/my_yellow_gem_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/my_info_light_color"
+                    android:text="Orange Gem : 2.0"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/shop_item_font_b"
+                    android:layout_below="@+id/gold_per_click_text"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="4dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/gold_per_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp"
+            android:elevation="10dp"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/my_resource_layout">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/shop_item_font"
+                    android:text="@string/stat_text"
+                    android:textColor="@color/my_info_highlight_color"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/gold_per_click_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gold Per Click : 3.5"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/my_info_light_color"
+                    android:fontFamily="@font/shop_item_font_b"/>
+                <TextView
+                    android:id="@+id/gold_per_sec_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/my_info_light_color"
+                    android:text="Gold Per Second : 2.0"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/shop_item_font_b"
+                    android:layout_below="@+id/gold_per_click_text"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="4dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/skill_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp"
+            android:elevation="10dp"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/gold_per_card_view">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/my_info_skill_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/shop_item_font"
+                android:text="@string/skill_text"
+                android:textColor="@color/my_info_highlight_color"
+                android:textSize="15sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_info_skill_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/my_info_skill_text"
+                android:layout_margin="10dp"/>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</ScrollView>

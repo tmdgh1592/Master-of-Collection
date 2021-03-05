@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font android:font="@font/godo_b"
+        android:fontWeight="900"
+        android:fontStyle="normal"/>
+    <font android:font="@font/shop_item_font"
+        android:fontWeight="900"
+        android:fontStyle="normal"/>
+    <font android:font="@font/shop_item_font_b"
+        android:fontWeight="900"
+        android:fontStyle="normal"/>
+</font-family>

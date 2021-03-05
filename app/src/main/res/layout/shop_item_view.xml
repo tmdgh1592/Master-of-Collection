@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_backgorund_layout"
+    android:orientation="vertical" android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="23dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/item_background">
+
+    <ImageView
+        android:id="@+id/item_image_view"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@null"
+        android:layout_centerInParent="true"
+        android:src="@drawable/item_box_and_key"/>
+
+    <TextView
+        android:id="@+id/item_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/item_name_color"
+        android:fontFamily="@font/shop_item_font"
+        android:textStyle="bold"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_above="@+id/price_layout"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:layout_centerHorizontal="true"
+        android:text="null"/>
+
+    <RelativeLayout
+        android:id="@+id/price_layout"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="6dp">
+
+        <ImageView
+            android:id="@+id/item_type"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_gold"/>
+
+        <TextView
+            android:id="@+id/item_price_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@+id/item_type"
+            android:gravity="center"
+            android:text="null"
+            android:textColor="@color/item_price_color"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

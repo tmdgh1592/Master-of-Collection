@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="358dp"
+        android:layout_height="358dp"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/box_open_cancel_image"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="14dp"
+            android:background="@null"
+            android:clickable="true"
+            android:src="@drawable/close_button"/>
+
+        <ImageView
+            android:id="@+id/box_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:adjustViewBounds="true"
+            android:layout_below="@+id/box_open_cancel_image"
+            android:clickable="true"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="18dp"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:id="@+id/box_open_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="22dp"
+                android:paddingRight="22dp"
+                android:clickable="true"
+                android:background="@drawable/button_layout">
+
+                <TextView
+                    android:id="@+id/open_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/shop_item_font_b"
+                    android:textSize="17sp"
+                    android:gravity="center"
+                    android:textColor="@color/item_price_color"
+                    android:text="@string/box_open_text"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/box_all_open_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="22dp"
+                android:paddingRight="22dp"
+                android:clickable="true"
+                android:layout_toRightOf="@+id/box_open_button"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/button_layout">
+
+                <TextView
+                    android:id="@+id/open_all_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/shop_item_font_b"
+                    android:gravity="center"
+                    android:text="전체 열기"
+                    android:textColor="@color/item_price_color"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

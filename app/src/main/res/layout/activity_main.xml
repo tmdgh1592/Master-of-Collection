@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/main_relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/background_temp">
+
+
+        <ImageView
+            android:id="@+id/monster_image_view"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:background="@null"
+            android:src="@drawable/amumu"/>
+
+        <!--open upgrade drawer view button-->
+        <include layout="@layout/main_upgrade_option_layout"/>
+
+        <!--entering myinfo button-->
+        <include layout="@layout/main_info_button_layout"
+            android:layout_above="@+id/main_tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"/>
+
+        <!--showing ranking-->
+        <include layout="@layout/main_ranking_button_layout"
+            android:layout_above="@+id/main_tab_layout"
+            android:layout_toRightOf="@+id/my_info_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"/>
+
+        <!--showing reward video-->
+        <include layout="@layout/main_reward_button_layout"
+            android:layout_above="@+id/main_tab_layout"
+            android:layout_toRightOf="@+id/ranking_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"/>
+        <ImageView
+            android:id="@+id/config_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="13dp"
+            android:layout_above="@+id/main_tab_layout"
+            android:src="@drawable/config_icon"/>
+
+        <include layout="@layout/main_gold_screen"/>
+
+        <include layout="@layout/shop_view"
+            android:visibility="gone"/>
+        <include layout="@layout/main_tab"/>
+
+        <ir.alirezabdn.wp7progress.WP10ProgressBar
+            android:id="@+id/loading_progress_bar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            app:animationDuration="2300"
+            app:indicatorColor="@color/colorAccent"
+            app:indicatorHeight="7"
+            app:indicatorRadius="5"
+            app:interval="100" />
+    </RelativeLayout>
+
+    <include layout="@layout/upgrade_drawer_view"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

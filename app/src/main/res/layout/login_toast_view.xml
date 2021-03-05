@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_toast_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/login_toast_view"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    app:layout_constraintCircleRadius="10dp"
+    android:paddingRight="25dp"
+    android:paddingLeft="25dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp">
+
+    <TextView
+        android:id="@+id/toast_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="반갑습니다 유저님."
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:fontFamily="@font/shop_item_font"/>
+
+
+</LinearLayout>

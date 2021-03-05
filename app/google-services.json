@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "633309392051",
+    "firebase_url": "https://hittheamumu.firebaseio.com",
+    "project_id": "hittheamumu",
+    "storage_bucket": "hittheamumu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633309392051:android:2f7f2448feec4563c594c6",
+        "android_client_info": {
+          "package_name": "com.app.buna.boxsimulatorforlol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633309392051-7cv803q9j67g7pvcgt617cjfemct2fp6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.buna.boxsimulatorforlol",
+            "certificate_hash": "6a2cc1de179ad29ab90dba57e9a5b6c46383f215"
+          }
+        },
+        {
+          "client_id": "633309392051-lpv17iqfq0jteje23lj1o7octhkel3ti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3gaF5Ezfj-KeEWuhYq256qUMsEwR7xlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633309392051-lpv17iqfq0jteje23lj1o7octhkel3ti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

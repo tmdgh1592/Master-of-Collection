@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/purchase_confirm_layout"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/major_background">
+
+
+    <RelativeLayout
+        android:id="@+id/item_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp">
+
+        <ImageView
+            android:id="@+id/confirm_item_image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@null"
+            android:src="@drawable/item_box_and_key"/>
+
+        <TextView
+            android:id="@+id/confirm_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="null"
+            android:textColor="@color/item_name_color"
+            android:fontFamily="@font/shop_item_font"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_toRightOf="@+id/confirm_item_image"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageView
+            android:id="@+id/confirm_item_type"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@null"
+            android:src="@drawable/icon_gold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/confirm_item_image"
+            android:layout_below="@+id/confirm_item_name"/>
+
+        <TextView
+            android:id="@+id/confirm_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="null"
+            android:textColor="@color/item_price_color"
+            android:fontFamily="@font/shop_item_font"
+            android:textSize="14sp"
+            android:layout_toRightOf="@+id/confirm_item_type"
+            android:gravity="center"
+            android:layout_below="@+id/confirm_item_name"
+            android:layout_marginTop="3.3dp"
+            android:layout_marginLeft="5dp"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/confirm_cancel_image"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="14dp"
+        android:background="@null"
+        android:src="@drawable/close_button"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x"
+        android:textColor="@color/item_price_color"
+        android:textSize="22dp"
+        android:layout_toLeftOf="@id/buy_count_edit_text"
+        android:layout_above="@+id/confirm_divider_view"
+        android:layout_marginBottom="27dp"
+        android:layout_marginRight="8dp"/>
+
+    <EditText
+        android:id="@+id/buy_count_edit_text"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:layout_toLeftOf="@id/confirm_item_purchase_button"
+        android:layout_above="@+id/confirm_divider_view"
+        android:textColor="@color/item_name_color"
+        android:layout_marginBottom="21dp"
+        android:layout_marginRight="16dp"
+        android:inputType="numberDecimal"
+        android:maxLength="2"
+        android:gravity="center"
+        android:background="@drawable/fragment_skin_background"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:fontFamily="@font/shop_item_font"/>
+
+    <LinearLayout
+        android:id="@+id/confirm_item_purchase_button"
+        android:layout_width="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/confirm_divider_view"
+        android:layout_marginBottom="18dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/button_layout">
+
+        <TextView
+            android:id="@+id/purchase_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/shop_item_font_b"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:textColor="@color/item_price_color"
+            android:text="@string/purchase_text"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/confirm_divider_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/tabLineColor"
+        android:layout_below="@+id/item_info_layout"/>
+
+    <TextView
+        android:id="@+id/confirm_item_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/item_desc_color"
+        android:layout_below="@+id/confirm_divider_view"
+        android:gravity="center|left"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:fontFamily="@font/shop_item_font"
+        android:textStyle="normal"
+        android:textSize="14sp"
+        android:ellipsize="end"
+        android:text="null"/>
+
+</RelativeLayout>

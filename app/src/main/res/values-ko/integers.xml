@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- 상점 -->
+
+    <!-- item price -->
+    <integer-array name="shop_item_price">
+        <item>0</item>
+        <item>130</item>
+        <item>60</item>
+        <!--<item>180</item>-->
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+
+    <!-- item type -->
+    <!-- gold : 0, blue gem : 1, yellow gem : 2, title : -1 -->
+    <integer-array name="shop_item_type">
+        <item>-1</item>
+        <item>0</item>
+        <item>0</item>
+        <!--<item>0</item>-->
+        <item>2</item>
+        <item>1</item>
+    </integer-array>
+
+    <!-- item code -->
+    <integer-array name="shop_item_code">
+        <item>-1</item>    <!-- 타이틀(재료) -->
+        <item>100</item>    <!-- 명품 상자 1개-->
+        <item>101</item>    <!-- 열쇠 1개-->
+        <!--<item>102</item>    &lt;!&ndash; [세트] 명품 상자 & 열쇠 1개&ndash;&gt;-->
+        <item>103</item>    <!-- 파랑 정수-->
+        <item>104</item>    <!-- 노랑 정수-->
+    </integer-array>
+
+
+
+
+
+
+
+    <!-- 스킬 업그레이드 -->
+
+    <!-- upgrade type -->
+    <!-- goldPerClick : 0, goldPerSecond : 1, goldPerBlueSteal : 2, goldPerYellowSteal : 3, goldPerTier : 4 -->
+    <integer-array name="upgrade_type">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <!--<item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>-->
+    </integer-array>
+
+    <!-- upgrade max value -->
+    <integer-array name="max_skill_level">
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>10</item>
+        <item>10</item>
+        <!--<item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>-->
+    </integer-array>
+
+    <!-- upgrade_init_price -->
+    <integer-array name="upgrade_init_price">
+        <item>100</item>
+        <item>10000</item>
+        <item>50000</item>
+        <item>400</item>
+        <item>30000</item>
+        <item>200000</item>
+        <item>500</item>
+        <item>500</item>
+        <!--<item>500</item>
+        <item>200</item>
+        <item>300</item>
+        <item>100</item>
+        <item>300</item>
+        <item>500</item>
+        <item>200</item>
+        <item>300</item>
+        <item>1000</item>-->
+    </integer-array>
+
+
+    <!--
+    ALL = 1;
+    IRON = 100;
+    BRONZE = 200;
+    SILVER = 300;
+    GOLD = 400;
+    PLATINUM = 500;
+    DIAMOND = 600;
+    MASTER = 700;
+    GRANDMASTER = 800;
+    CHALLENGER = 900;
+    -->
+    <!-- upgrade level condition -->
+    <integer-array name="upgrade_tier_condition">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <!--<item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>-->
+    </integer-array>
+
+
+
+
+
+</resources>

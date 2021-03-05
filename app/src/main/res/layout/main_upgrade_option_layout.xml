@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/upgrade_button_layout1"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true">
+
+    <!-- width : height = 3 : 4.1-->
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:background="@null"
+        android:src="@drawable/drawer_arrow"/>
+
+    <ImageView
+        android:id="@+id/left_option_icon1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:src="@drawable/upgrade_image"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="4dp"/>
+
+</RelativeLayout>

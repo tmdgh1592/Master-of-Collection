@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.FactoryActivity"
+    android:background="@color/tabBackground">
+
+    <include
+        android:id="@+id/factory_gold_screen"
+        layout="@layout/factory_gold_screen"/>
+    <include layout="@layout/divider_view"
+        android:id="@+id/top_divider"
+        android:layout_below="@+id/factory_gold_screen"
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/factory_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_divider"
+        android:layout_below="@+id/top_divider"
+        android:paddingBottom="10dp"
+        android:clipToPadding="false"/>
+
+    <include layout="@layout/factory_forge_elements_view"
+        android:id="@+id/forge_element_pre_view"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"
+        android:layout_below="@+id/factory_gold_screen"/>
+
+    <include
+        android:id="@+id/bottom_divider"
+        layout="@layout/divider_view"
+        android:layout_alignParentBottom="true"
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="25dp"/>
+
+    <ImageView
+        android:id="@+id/forge_cycle_image_view"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:visibility="gone"
+        android:src="@drawable/main_forge_cycle_image"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"/>
+
+    <ProgressBar
+        android:id="@+id/item_more_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:indeterminate="true"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:visibility="gone"/>
+
+</RelativeLayout>

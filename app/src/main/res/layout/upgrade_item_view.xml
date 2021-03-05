@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/upgrade_item_layout"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="80dp"
+    android:clickable="true"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/upgrade_icon"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/tier_challenger_icon"
+        app:civ_border_width="0.8dp"
+        app:civ_border_color="@color/upgrade_item_stroke_color"
+        app:civ_circle_background_color="@android:color/transparent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/upgrade_name_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/upgrade_icon">
+
+        <TextView
+            android:id="@+id/upgrade_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="슬픈 아무무"
+            android:textColor="@color/upgrade_item_name_text_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/upgrade_effect_item_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/upgrade_item_name"
+            android:layout_marginTop="4dp"
+            android:text="+5.50 Gold/Click"
+            android:textColor="@color/upgrade_item_desc_text_color"
+            android:textSize="12sp"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/upgrade_item_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/upgrade_effect_item_value"
+            android:layout_centerVertical="true"
+            android:text="왜인지 모르게 슬퍼보인다.. 한대 쥐어박고 싶다."
+            android:textColor="@color/upgrade_item_desc_text_color"
+            android:gravity="center|left"
+            android:textSize="12dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="12dp"/>
+
+        <TextView
+            android:id="@+id/upgrade_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="0/1"
+            android:gravity="right"
+            android:textColor="@color/upgrade_item_desc_text_color"
+            android:layout_marginRight="12dp"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/upgrade_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="150,000"
+            android:layout_below="@+id/upgrade_value"
+            android:layout_toLeftOf="@+id/upgrade_price_icon"
+            android:textColor="@color/upgrade_item_desc_text_color"
+            android:textSize="13sp"/>
+
+        <ImageView
+            android:id="@+id/upgrade_price_icon"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:background="@null"
+            android:src="@drawable/icon_gold"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="3.3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_below="@+id/upgrade_value"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

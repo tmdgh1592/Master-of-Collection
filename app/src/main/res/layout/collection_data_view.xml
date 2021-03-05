@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/major_background"
+    android:layout_margin="20dp">
+
+    <RelativeLayout
+        android:id="@+id/exchange_top_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/champ_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/collection_data_item_image"
+                android:layout_width="68dp"
+                android:layout_height="80dp"
+                android:paddingTop="4dp"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:src="@drawable/xinzhao_0"/>
+
+            <ImageView
+                android:id="@+id/collection_data_frame_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:src="@drawable/collection_skin_frame"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/collection_data_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="20dp"
+            android:layout_toLeftOf="@+id/collection_view_close_button"
+            android:layout_toRightOf="@+id/champ_icon"
+            android:ellipsize="end"
+            android:fontFamily="@font/shop_item_font_b"
+            android:maxLines="2"
+            android:text="신짜오"
+            android:textColor="@color/frag_upgrade_champ_name_color"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/collection_data_type_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/collection_data_name_text"
+            android:layout_marginLeft="14dp"
+            android:layout_toRightOf="@+id/champ_icon"
+            android:fontFamily="@font/shop_item_font"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/frag_upgrade_type_color"
+            android:text="챔피언"/>
+
+        <ImageView
+            android:id="@+id/collection_view_close_button"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="14dp"
+            android:background="@null"
+            android:src="@drawable/close_button"/>
+
+        <View
+            android:id="@+id/exchange_divider_view"
+            android:layout_below="@+id/champ_icon"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/tabLineColor"/>
+
+
+        <RelativeLayout
+            android:id="@+id/wallpaper_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/exchange_divider_view"
+            android:paddingBottom="18dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <TextView
+                android:id="@+id/wallpaper_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/frag_upgrade_text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/shop_item_font_b"
+                android:text="@string/wallpaper_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="13dp"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

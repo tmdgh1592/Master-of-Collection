@@ -1,0 +1,40 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="65dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:background="@drawable/major_round_background">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/first_forge_pre_image_view"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/empty_forge_box"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="40dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/forge_factory_item_stroke_color"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/second_forge_pre_image_view"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/empty_forge_box"
+        android:layout_marginRight="15dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/forge_factory_item_stroke_color"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/third_forge_pre_image_view"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/empty_forge_box"
+        android:layout_marginRight="40dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/forge_factory_item_stroke_color"/>
+
+</LinearLayout>

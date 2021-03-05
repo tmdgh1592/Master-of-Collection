@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- how much upgrade_price 'incresement percentage' -->
+    <array name="how_much_upgrade_price">
+        <item>1.1</item>
+        <item>1.03</item>
+        <item>1.03</item>
+        <item>1.1</item>
+        <item>1.03</item>
+        <item>1.03</item>
+        <item>1.25</item>
+        <item>1.25</item>
+        <!--<item>1.25</item>
+        <item>1.25</item>
+        <item>1.25</item>
+        <item>1.25</item>
+        <item>1.25</item>
+        <item>1.25</item>
+        <item>1.25</item>
+        <item>1.25</item>
+        <item>1.25</item>-->
+    </array>
+
+    <!-- upgrade_effect_value : goldPerSec, goldPerClick -->
+    <array name="how_much_upgrade_effect">
+        <item>0.5</item>
+        <item>1.0</item>
+        <item>1.5</item>
+        <item>0.1</item>
+        <item>0.15</item>
+        <item>0.2</item>
+        <item>1.0</item>
+        <item>1.0</item>
+        <!--<item>1.0</item>
+        <item>1.0</item>
+        <item>1.0</item>
+        <item>1.0</item>
+        <item>1.0</item>
+        <item>1.0</item>
+        <item>1.0</item>
+        <item>1.0</item>
+        <item>1.0</item>-->
+    </array>
+
+</resources>

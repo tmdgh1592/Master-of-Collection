@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.WebSplashActivity">
+
+    <WebView
+        android:id="@+id/splash_web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <LinearLayout
+        android:id="@+id/img_download_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:background="@color/black">
+        <TextView
+            android:id="@+id/download_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wallpaper_download"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:fontFamily="@font/shop_item_font_b"/>
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:background="@null"
+            android:tint="@color/white"
+            android:src="@drawable/download_icon"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/forge_background_color"
+    android:paddingBottom="30dp"
+    android:paddingTop="20dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp">
+
+    <ImageView
+        android:id="@+id/forge_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/forge_cycle_image"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/forge_close_button"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@drawable/close_button"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/forge_element_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/forge_button">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp">
+            <ImageView
+                android:id="@+id/first_forge_border_image_view"
+                android:layout_width="81dp"
+                android:layout_height="81dp"
+                android:background="@null"/>
+            <ImageView
+                android:id="@+id/first_forge_image_view"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_marginLeft="2.5dp"
+                android:layout_marginTop="2.2dp"
+                android:src="@drawable/empty_forge_box"/>
+            <ImageView
+                android:id="@+id/first_forge_close_image_view"
+                android:layout_width="81dp"
+                android:layout_height="81dp"
+                android:visibility="gone"
+                android:background="@drawable/forge_close_tile" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp">
+            <ImageView
+                android:id="@+id/second_forge_border_image_view"
+                android:layout_width="81dp"
+                android:layout_height="81dp"/>
+            <ImageView
+                android:id="@+id/second_forge_image_view"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@null"
+                android:layout_marginLeft="2.5dp"
+                android:layout_marginTop="2.2dp"
+                android:src="@drawable/empty_forge_box"/>
+            <ImageView
+                android:id="@+id/second_forge_close_image_view"
+                android:layout_width="81dp"
+                android:layout_height="81dp"
+                android:visibility="gone"
+                android:background="@drawable/forge_close_tile" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp">
+            <ImageView
+                android:id="@+id/third_forge_border_image_view"
+                android:layout_width="81dp"
+                android:layout_height="81dp"/>
+            <ImageView
+                android:id="@+id/third_forge_image_view"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@null"
+                android:layout_marginLeft="2.5dp"
+                android:layout_marginTop="2.2dp"
+                android:src="@drawable/empty_forge_box"/>
+            <ImageView
+                android:id="@+id/third_forge_close_image_view"
+                android:layout_width="81dp"
+                android:layout_height="81dp"
+                android:visibility="gone"
+                android:background="@drawable/forge_close_tile" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/forge_clear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:background="@drawable/button_layout"
+        android:layout_below="@+id/forge_element_layout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/shop_item_font_b"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:textColor="@color/item_price_color"
+            android:text="@string/clear_text"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

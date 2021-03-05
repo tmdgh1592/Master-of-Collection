@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.app.buna.boxsimulatorforlol"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 26
+        versionName "1.1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    /*다국어 지원을 위해 strings.xml 여러개를 할 경우 lintOptions을 넣어줘야 오류가 나지 않음*/
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    /*flavorDimensions "version"
+    productFlavors {
+        flavor1 {
+        }
+        flavor2 {
+            proguardFile 'flavor2-rules.pro'
+        }
+    }*/
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.annotation:annotation:1.0.2'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.preference:preference:1.1.0-alpha05'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.github.AnJiaoDe:BaseDialog:V1.1.8'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.firebase:firebase-database:19.1.0'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.github.shadowalker77:wp7progressbar:1.0.5'
+    implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
+    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.facebook.android:audience-network-sdk:5.+'
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+}
+
+apply plugin: 'com.google.gms.google-services'

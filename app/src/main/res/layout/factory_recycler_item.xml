@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_backgorund_layout"
+    android:orientation="vertical" android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="12dp"
+    android:clickable="true"
+    android:background="@drawable/fragment_skin_background">
+
+    <ImageView
+        android:id="@+id/frag_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:layout_margin="1dp"
+        android:src="@drawable/item_box_and_key"/>
+
+    <TextView
+        android:id="@+id/frag_count_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:fontFamily="@font/shop_item_font_b"
+        android:textColor="@color/fragment_count_color"
+        android:layout_marginBottom="3dp"
+        android:layout_marginRight="4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textSize="13sp" />
+
+</RelativeLayout>

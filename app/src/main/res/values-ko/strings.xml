@@ -1,0 +1,342 @@
+<resources>
+    <string name="app_name">마스터 오브 컬렉션</string>
+    <string name="app_eng_name">master of collection</string>
+    <string name="app_version">1.0.0</string>
+
+    <string name="pref_title_account">계정</string>
+    <string name="pref_title_data">데이터</string>
+    <string name="pref_title_sound">음향</string>
+    <string name="pref_title_other">기타</string>
+
+    <string name="notification_message">아무무가 열심히 골드를 수집중입니다!</string>
+
+    <string name="splash_text">\'마스터 오브 컬렉션\'은 단지 시뮬레이션 게임입니다.\n시뮬레이터에서 진행되는 모든 행위들은\n실제 리그 오브 레전드 계정에 전혀 반영되지 않습니다.</string>
+
+    <string name="pref_title_nickname">닉네임</string>
+    <string name="pref_title_email">이메일</string>
+    <string name="pref_title_logout">로그아웃</string>
+    <string name="pref_save_data_text">백업</string>
+    <string name="pref_load_data_text">불러오기</string>
+    <string name="pref_bgm_sound_text">배경음</string>
+    <string name="pref_punch_sound_text">효과음</string>
+    <string name="pref_clear_data_text">초기화</string>
+    <string name="pref_change_language">언어</string>
+    <string name="pref_title_star">평점 남기기</string>
+    <string name="pref_contact_email">메일 보내기</string>
+    <string name="pref_now_version">현재 버전</string>
+
+    <string name="pref_logout_summ_text">현재 데이터를 서버에 저장하고, 계정을 로그아웃합니다.</string>
+    <string name="pref_save_data_summ_text">기기에 저장되어 있는 게임 데이터를 서버에 저장합니다.\n※ 저장시 랭킹 정보를 갱신할 수 있습니다!</string>
+    <string name="pref_load_data_summ_text">서버로부터 저장된 데이터를 불러옵니다.</string>
+    <string name="pref_clear_data_summ_text">기기에 저장되어 있는 게임 데이터를 초기화합니다.</string>
+    <string name="pref_change_language_summ">한국어</string>
+    <string name="pref_title_star_summ">어플에 대한 평가를 남겨주세요.\n개발자에게 큰 도움이 됩니다!</string>
+    <string name="pref_contact_email_summ">개발자에게 게임에 대한 피드백 또는, 기타 문의를 할 수 있습니다.</string>
+    <string name="pref_now_version_summ">스토어에 기재된 패치 노트를 확인하세요!</string>
+
+    <string name="save_alert_title">백업</string>
+    <string name="save_alert_message">현재 데이터를 서버에 저장하시겠습니까?\n\n※ 저장을 하면 랭킹이 갱신됩니다!</string>
+    <string name="load_alert_title">불러오기</string>
+    <string name="load_alert_message">서버로부터 데이터를 불러오시겠습니까?\n\n※ 경고 : 현재 데이터가 덮어씌워집니다!</string>
+    <string name="clear_alert_title">초기화</string>
+    <string name="clear_alert_message">기기에 저장된 데이터를 초기화 하시겠습니까?\n\n※ 현재 데이터가 모두 초기화됩니다!</string>
+    <string name="logout_alert_title">로그아웃</string>
+    <string name="logout_alert_message">정말 로그아웃 하시겠습니까?\n\n※ 경고 : 데이터 증발에 대비하여 로그아웃 전에, 백업 기능을 꼭 이용하시기 바랍니다.</string>
+
+    <string name="save_alert_not_underline_message">현재 데이터를 서버에 저장하시겠습니까?\n\n</string>
+    <string name="load_alert_not_underline_message">서버로부터 데이터를 불러오시겠습니까?\n\n</string>
+    <string name="logout_alert_not_underline_message">정말 로그아웃 하시겠습니까?\n\n</string>
+
+    <string name="language_select_text">언어</string>
+    <string name="language_kr_text">한국어</string>
+    <string name="language_en_text">English</string>
+
+    <string name="app_ad_id">ca-app-pub-6856965594532028~9155240372</string>
+    <string name="reward_ad_id">ca-app-pub-6856965594532028/8365559420</string>
+    <string name="save_video_ad_id">ca-app-pub-6856965594532028/6114144067</string>
+    <string name="load_video_ad_id">ca-app-pub-6856965594532028/3687947810</string>
+    <string name="video_test_ad_id">ca-app-pub-3940256099942544/5224354917</string>
+
+    <string name="my_ranking_text">나의 랭킹</string>
+    <string name="all_user_ranking_text">Top 30</string>
+
+    <string name="ad_title">스폐셜 구</string>
+    <string name="ad_message">광고를 시청하시겠습니까?\n보상 : \'스폐셜 구\' 1개 ~ 3개 랜덤으로 획득</string>
+    <string name="ad_reward_message">\'스폐셜 구\' %d개를 획득하였습니다.</string>
+    <string name="ad_request_error">잠시 오류가 발생했습니다.\n다시 시도해주시기 바랍니다.</string>
+
+    <string name="ad_reward_type">%d개</string>
+    <string name="ad_reward_0">명품상자 \u0026 열쇠</string>
+    <string name="ad_reward_1">스폐셜 구</string>
+    <string name="ad_reward_2">파랑 정수</string>
+    <string name="ad_reward_3">주황 정수</string>
+    <string name="ad_reward_4">골드</string>
+
+    <string name="preference_ad_message">광고시청이 모두 끝난 후에, 백업 / 불러오기 과정이 진행됩니다.</string>
+    <string name="preference_ad_save_success_message">게임 데이터를 저장하였습니다!</string>
+    <string name="preference_ad_load_success_message">게임 데이터를 성공적으로 불러왔습니다!</string>
+    <string name="preference_ad_load_failed_message">저장되어 있는 데이터가 없습니다.\n백업 기능을 이용해주시기 바랍니다.</string>
+    <string name="preference_init_success_message">게임 데이터를 정상적으로 초기화 하였습니다!</string>
+
+    <string name="tab1_name">컬렉션</string>
+    <string name="tab2_name">제작소</string>
+    <string name="tab3_name">상점</string>
+    <string name="purchase_text">구매</string>
+    <string name="box_open_text">열기</string>
+    <string name="box_get_result_text">보관함에 추가</string>
+    <string name="box_upgrade_result_text">영구 획득하기</string>
+    <string name="reward_result_text">아이템 획득하기</string>
+    <string name="open_all_text">개 열기</string>
+
+    <string name="box_text">명품 상자</string>
+    <string name="key_text">열쇠</string>
+    <string name="rewarded_item_text">스폐셜 구</string>
+    <string name="champion_text">챔피언</string>
+    <string name="skin_text">스킨</string>
+    <string name="ward_skin">와드 스킨</string>
+
+    <string name="champ_shard_text">챔피언 파편</string>
+    <string name="skin_shard_text">스킨 파편</string>
+
+    <string name="whole_champ_text">온전한 챔피언</string>
+    <string name="whole_skin_text">온전한 스킨</string>
+
+    <string name="is_having_text">보유중</string>
+    <string name="is_not_having_text">미보유</string>
+
+    <string name="forge_text">재조합</string>
+    <string name="exchange_to_gem_text">추출</string>
+    <string name="upgrade_frag_text">업그레이드</string>
+
+    <string name="clear_text">초기화</string>
+
+    <string name="wallpaper_text">전체 이미지 보기</string>
+    <string name="wallpaper_download">이미지 다운로드</string>
+    <string name="download_success">이미지를 성공적으로 다운하였습니다.</string>
+    <string name="download_fail">이미지 다운로드에 실패하였습니다.</string>
+    <string name="permission_denined_text">기능 사용을 위한 권한 동의가 필요합니다.</string>
+
+    <string name="forge_desc_text">3종류의 파편을 무작위로 합성합니다</string>
+    <string name="exchange_to_gem_desc_text">정수를 추출합니다</string>
+    <string name="upgrade_frag_to_complete_desc_text">파편을 온전한 아이템으로 교환합니다</string>
+
+    <string name="my_info_text">내정보</string>
+    <string name="tier_text">현재티어</string>
+    <string name="resource_text">보유 자원</string>
+    <string name="gold_text">골드</string>
+    <string name="champ_short_text">챔피언</string>
+    <string name="blue_gem_text">파랑 정수</string>
+    <string name="yellow_gem_text">주황 정수</string>
+    <string name="stat_text">능력치</string>
+    <string name="skill_text">스킬</string>
+    <string name="collection_exp_text">컬렉션 경험치</string>
+
+    <string name="material">재료</string>
+    <string name="champions_text">챔피언</string>
+    <string name="skins_text">스킨</string>
+
+    <string name="temp_user_name">소환사</string>
+    <string name="hello1">반갑습니다 \'%s\'님\n</string>
+    <string name="hello2">아무무 월드에 오신 것을 환영합니다.</string>
+
+    <string name="upgrade_text">스킬 강화</string>
+    <string name="warning_disable_upgrade_bc_money">비용이 부족합니다.</string>
+    <string name="warning_disable_upgrade_bc_max_upgrade">최대 업그레이드 수치입니다.</string>
+    <string name="warning_disable_upgrade_bc_before_skill"> 스킬을 모두 강화하셔야 합니다.</string>
+    <string name="warning_disable_upgrade_bc_tier">현재 티어가 강화 티어보다 낮기 때문에 업그레이드를 하실 수 없습니다.</string>
+
+    <string name="unknown_error">알 수 없는 오류가 발생했습니다.\n운영자에게 문의하세요.</string>
+
+    <string name="register">계정 생성</string>
+    <string name="found_account">로그인이 안 되시나요?</string>
+    <string name="id_text">계정이름</string>
+    <string name="pw_text">비밀번호</string>
+    <string name="continue_login_state">로그인 상태 유지</string>
+    <string name="find_email_text">비밀번호 찾기</string>
+
+    <!--register text-->
+    <string name="password_condtion1_text">조건 특수문자 이탈시 특수문자 중\n \u003C\u002C >, (, ), #, \u0027, /, | 는 사용할수 없습니다.</string>
+    <string name="password_condtion2_text">패스워드는 아이디와 동일하게 사용하실 수 없습니다.</string>
+    <string name="password_condtion3_text">패스워드는 영문과 숫자, 특수문자만 사용 가능합니다.</string>
+    <string name="password_condtion4_text">패스워드는 영문과 숫자를 반드시 포함해야 합니다.</string>
+    <string name="password_condtion5_text">사용 가능한 패스워드 형식입니다.</string>
+
+    <string name="nick_condition_text1">사용 가능한 닉네임입니다.\n \'%s\'을(를) 사용하시겠습니까?</string>
+    <string name="nick_condition_text2">이미 존재하는 닉네임입니다.</string>
+    <string name="nick_condition_text3">닉네임 입력란이 비어있습니다.</string>
+    <string name="nick_condition_text4">닉네임은 한글, 영어, 숫자만 사용하실 수 있습니다.</string>
+    <string name="nick_condition_text5">환영합니다 \'%s\'님!\n회원 가입이 완료되었습니다.</string>
+    <string name="nick_condition_text6">닉네임은 최소 한글 2자 또는 영어, 숫자 4자 이상으로 구성되어야 합니다.</string>
+
+    <string name="nick_condition_error">인터넷 연결 상태가 불안정합니다.\nWifi 혹은 데이터 연결 상태를 확인하시기 바랍니다.</string>
+
+    <string name="register_condition_text1">닉네임 중복검사를 확인하세요.</string>
+    <string name="register_condition_text2">입력하지 않은 칸이 있습니다.\n다시 확인해주세요.</string>
+    <string name="register_condition_text3">이미 사용중인 이메일입니다.</string>
+
+    <string name="login_condition_text1">이메일과 비밀번호를 다시 확인해주시기 바랍니다.</string>
+
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="check_duplication">중복 검사</string>
+    <string name="reset_nick">재설정</string>
+
+    <string name="not_enough_gold">골드가 부족합니다.</string>
+    <string name="not_enough_essence">정수가 부족합니다.</string>
+    <string name="buy_comment">%s 를(을) %s개 구매하였습니다.</string>
+    
+    <!-- shop item name-->
+    <string-array name="shop_item_name">
+        <item>@string/material</item>
+
+        <item>명품 상자 1개</item>
+        <item>열쇠 1개</item>
+        <!--<item>[세트] 명품 상자 \u0026 열쇠 1개</item>-->
+        <item>파랑 정수</item>
+        <item>주황 정수</item>
+    </string-array>
+
+    <!-- shop item describe-->
+    <string-array name="shop_item_desc">
+        <item>재료</item>
+
+        <item>명품 상자 1개를 얻을 수 있다.</item>
+        <item>열쇠 1개를 얻을 수 있다.</item>
+        <!--<item>명품 상자와 열쇠 1개를 얻을 수 있다.</item>-->
+        <item>주황 정수를 파랑 정수로 교환할 수 있다.\n챔피언 파편을 온전한 챔피언으로 제작할 때 사용 할 수 있다.</item>
+        <item>파랑 정수를 주황 정수로 교환할 수 있다.\n스킨 파편을 온전한 스킨으로 제작할 때 사용 할 수 있다.</item>
+    </string-array>
+
+    <string-array name="shop_item_bought_count_key">
+        <item>재료</item>
+
+        <item>boughtBoxCount</item>
+        <item>boughtKeyCount</item>
+        <!--<item>boughtBoxAndKeyCount</item>-->
+        <item>boughtBlueGemCount</item>
+        <item>boughtYellowGemCount</item>
+    </string-array>
+
+    <!-- preference용 upgrade item name-->
+    <string-array name="pref_upgrade_item_name">
+        <item>AngryAmumu</item>
+        <item>Fatalwound</item>
+        <item>Infinitepunch</item>
+        <item>BlessingofElin</item>
+        <item>Galacticlight</item>
+        <item>Powerup!</item>
+        <item>Lootingblueessence</item>
+        <item>Lootingorangeessence</item>
+        <!--<item>아이언</item>
+        <item>브론즈</item>
+        <item>실버</item>
+        <item>골드</item>
+        <item>플래티넘</item>
+        <item>다이아몬드</item>
+        <item>마스터</item>
+        <item>그랜드마스터</item>
+        <item>챌린저</item>-->
+    </string-array>
+
+    <!-- upgrade item name-->
+    <string-array name="upgrade_item_name">
+        <item>분노의 아무무</item>
+        <item>치명적 상처</item>
+        <item>무한의 펀치</item>
+        <item>엘린의 축복</item>
+        <item>은하계의 빛</item>
+        <item>파워 업!</item>
+        <item>파랑 정수 약탈</item>
+        <item>주황 정수 약탈</item>
+        <!--<item>아이언</item>
+        <item>브론즈</item>
+        <item>실버</item>
+        <item>골드</item>
+        <item>플래티넘</item>
+        <item>다이아몬드</item>
+        <item>마스터</item>
+        <item>그랜드마스터</item>
+        <item>챌린저</item>-->
+    </string-array>
+
+    <!-- upgrad shop desc-->
+    <string-array name="upgrade_shop_desc">
+        <item><b>[액티브]</b> 계속되는 공격으로 아무무가 머리 끝까지 화가 났다.</item>
+        <item><b>[액티브]</b> 적에게 상처를 주어 빈 틈을 공격한다.</item>
+        <item><b>[액티브]</b> 쉴 틈도 주지 않고 공격한다.</item>
+        <item><b>[패시브]</b> 엘린의 축복을 받아 가만히 있어도 추가로 골드를 수급한다.</item>
+        <item><b>[패시브]</b> 은하계의 힘을 받아 가만히 있어도 추가로 골드를 수급한다.</item>
+        <item><b>[패시브]</b> 엄청난 힘으로 힘을 증가시킨다.\n힘이 미친듯이 흘러 넘친다..!</item>
+        <item><b>[도벽]</b> 공격시 일정 확률로 파랑 정수를 훔친다.</item>
+        <item><b>[도벽]</b> 공격시 일정 확률로 주황 정수를 훔친다.</item>
+        <!--<item><b>[스폐셜]</b> 아이언 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 브론즈 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 실버 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 골드 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 플래티넘 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 다이아몬드 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 마스터 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 그랜드마스터 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 챌린저 등급의 경우 해당 스킬을 획득한다.</item>-->
+    </string-array>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">이메일</string>
+    <string name="prompt_password">비밀번호</string>
+    <string name="prompt_register_nickname_text">닉네임</string>
+    <string name="prompt_register_id_text">이메일</string>
+    <string name="prompt_register_pw_text">비밀번호</string>
+    <string name="prompt_register_re_pw_text">비밀번호 재확인</string>
+    <string name="login_activity_main_text">로그인 하세요.</string>
+    <string name="register_activity_main_text">회원가입</string>
+    <string name="prompt_register_nickname_input">2글자 이상</string>
+    <string name="prompt_register_id_input">ex) abc123@xmail.com</string>
+    <string name="email_condition1_text">사용 가능한 이메일 형식입니다.</string>
+    <string name="email_condition2_text">적절한 이메일 형식이 아닙니다.</string>
+    <string name="prompt_register_pw_input">영문, 숫자 6자 ~ 15자 이내</string>
+    <string name="prompt_register_re_pw_input">비밀번호 재확인</string>
+    <string name="prompt_register_duplicate_text">중복 검사</string>
+    <string name="prompt_find_id_input">이메일 입력</string>
+    <string name="prompt_explain_find_id">발송된 이메일을 통해 비밀번호를 재설정하실 수 있습니다.</string>
+    <string name="prompt_sended_toast_text">이메일이 성공적으로 발송되었습니다.\n해당 이메일의 메일함을 확인해주시기 바랍니다.</string>
+    <string name="prompt_sended_failed_toast_text">이메일이 전송에 실패하였습니다. 올바른 이메일인지 다시 한 번 확인해주시기 바랍니다.</string>
+    <string name="prompt_register_ok">확인</string>
+    <string name="prompt_register_cancel">취소</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_settings">환경 설정</string>
+
+    <string-array name="pref_language_key">
+        <item>한국어</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="pref_language_value">
+        <item>kr</item>
+        <item>en</item>
+    </string-array>
+
+    <string name="pref_language_english">English</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+
+</resources>

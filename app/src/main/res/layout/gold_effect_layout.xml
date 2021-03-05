@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gold_effect_layout"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:layout_centerInParent="true"
+    android:visibility="visible">
+
+    <ImageView
+        android:id="@+id/coin_image_view"
+        android:layout_width="35dp"
+        android:layout_height="25dp"
+        android:background="@null"
+        android:src="@drawable/coin_image2"/>
+    <TextView
+        android:id="@+id/gold_per_click_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:fontFamily="@font/godo_b"
+        android:layout_marginTop="13dp"/>
+
+</RelativeLayout>

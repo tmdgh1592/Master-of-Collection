@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_title_account">
+        <Preference android:key="nickname_pref"
+            android:title="@string/pref_title_nickname"
+            android:summary=""/>
+        <Preference android:key="email_pref"
+            android:title="@string/pref_title_email"
+            android:summary=""/>
+        <Preference android:key="logout_pref"
+            android:title="@string/pref_title_logout"
+            android:summary="@string/pref_logout_summ_text"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_title_data">
+        <Preference android:key="save_data_pref"
+            android:title="@string/pref_save_data_text"
+            android:summary="@string/pref_save_data_summ_text"
+            android:icon="@drawable/save_icon"/>
+        <Preference android:key="load_data_pref"
+            android:title="@string/pref_load_data_text"
+            android:summary="@string/pref_load_data_summ_text"
+            android:icon="@drawable/down_icon"/>
+        <!--<Preference android:key="init_data_pref"
+            android:title="@string/pref_clear_data_text"
+            android:summary="@string/pref_clear_data_summ_text"
+            android:icon="@drawable/clear_icon" />-->
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_title_sound">
+        <SwitchPreference android:title="@string/pref_bgm_sound_text"
+            android:key="bgm_sound_switch"
+            android:defaultValue="true"/>
+        <SwitchPreference android:title="@string/pref_punch_sound_text"
+            android:key="effect_sound_switch"
+            android:defaultValue="true"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_title_other">
+        <ListPreference android:key="change_lang_pref"
+            android:title="@string/pref_change_language"
+            android:summary="@string/pref_change_language_summ"
+            android:defaultValue="0"
+            android:entries="@array/pref_language_key"
+            android:entryValues="@array/pref_language_value"
+            android:icon="@drawable/lang_icon"/>
+        <Preference android:key="contact_email"
+            android:title="@string/pref_title_star"
+            android:summary="@string/pref_title_star_summ"
+            android:icon="@drawable/assess_icon">
+            <!--<intent
+                android:data="https://m.onestore.co.kr/mobilepoc/apps/appsDetail.omp?prodId=0000746828"
+                android:action="android.intent.action.VIEW"/>-->
+            <intent
+                android:data="market://details?id=com.app.buna.boxsimulatorforlol"
+                android:action="android.intent.action.VIEW"/>
+        </Preference>
+        <Preference android:key="contact_email"
+            android:title="@string/pref_contact_email"
+            android:summary="@string/pref_contact_email_summ"
+            android:icon="@drawable/email_icon">
+            <intent
+                android:action="android.intent.action.SENDTO"
+                android:data="mailto:buna6492@gmail.com"/>
+        </Preference>
+        <Preference android:key="version_pref"
+            android:title="@string/pref_now_version"
+            android:summary="@string/pref_now_version_summ"
+            android:icon="@drawable/version_icon">
+            <!--<intent
+                android:data="https://m.onestore.co.kr/mobilepoc/apps/appsDetail.omp?prodId=0000746828"
+                android:action="android.intent.action.VIEW"/>-->
+            <intent
+                android:data="market://details?id=com.app.buna.boxsimulatorforlol"
+                android:action="android.intent.action.VIEW"/>
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

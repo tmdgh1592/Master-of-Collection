@@ -1,0 +1,343 @@
+<resources>
+    <string name="app_name">Master of Collection</string>
+    <string name="app_eng_name">master of collection</string>
+    <string name="app_version">1.0.0</string>
+
+    <string name="pref_title_account">Account</string>
+    <string name="pref_title_data">Data</string>
+    <string name="pref_title_sound">Sound</string>
+    <string name="pref_title_other">Other</string>
+
+    <string name="notification_message">Amumu is collecting gold!</string>
+
+    <string name="splash_text">\'Master of Collection\' is just a simulation game.\nEverything that is going on in the simulator\ndoes not reflect your League of Legends account at all.</string>
+
+    <string name="pref_title_nickname">Nickname</string>
+    <string name="pref_title_email">E-mail</string>
+    <string name="pref_title_logout">Logout</string>
+    <string name="pref_save_data_text">Backup</string>
+    <string name="pref_load_data_text">Load</string>
+    <string name="pref_bgm_sound_text">Background Sound</string>
+    <string name="pref_punch_sound_text">Effect Sound</string>
+    <string name="pref_clear_data_text">Reset</string>
+    <string name="pref_change_language">Language</string>
+    <string name="pref_title_star">Review</string>
+    <string name="pref_contact_email">Contact</string>
+    <string name="pref_now_version">Current version</string>
+
+    <string name="pref_logout_summ_text">Save the current data on the server, and logout of the account.</string>
+    <string name="pref_save_data_summ_text">Save the device\'s game data on the server.\n※ You can update your ranking information when saving!</string>
+    <string name="pref_load_data_summ_text">Load stored data from the server.</string>
+    <string name="pref_clear_data_summ_text">Initialize game data stored on the device.</string>
+    <string name="pref_change_language_summ">Korean</string>
+    <string name="pref_title_star_summ">please rate this game.\nIt will help make this game better!</string>
+    <string name="pref_contact_email_summ">You can give feedback or ask questions about this game.</string>
+    <string name="pref_now_version_summ">Check out the patch notes on the Store!</string>
+
+    <string name="save_alert_title">Backup</string>
+    <string name="save_alert_message">Do you want to save the current data to the server?\n\n※ Save to renew your ranking!</string>
+    <string name="load_alert_title">Load</string>
+    <string name="load_alert_message">Do you want to load data from the server?\n\n※ Warning : Current data will not be saved!</string>
+    <string name="clear_alert_title">Initialization</string>
+    <string name="clear_alert_message">Do you want to initialize the data stored on the device?\n\n※ All current data will be initialized!</string>
+    <string name="logout_alert_title">Logout</string>
+    <string name="logout_alert_message">Are you sure you want to logout?\n\n※ WARNING : Be sure to use the backup function before logging out for data evaporation.</string>
+
+    <string name="save_alert_not_underline_message">Do you want to save the current data to the server?\n\n</string>
+    <string name="load_alert_not_underline_message">Do you want to load data from the server?\n\n</string>
+    <string name="logout_alert_not_underline_message">Are you sure you want to logout?\n\n</string>
+
+    <string name="language_select_text">Lang</string>
+    <string name="language_kr_text">Korean</string>
+    <string name="language_en_text">English</string>
+
+    <string name="app_ad_id">ca-app-pub-6856965594532028~9155240372</string>
+    <string name="reward_ad_id">ca-app-pub-6856965594532028/8365559420</string>
+    <string name="save_video_ad_id">ca-app-pub-6856965594532028/6114144067</string>
+    <string name="load_video_ad_id">ca-app-pub-6856965594532028/3687947810</string>
+    <string name="video_test_ad_id">ca-app-pub-3940256099942544/5224354917</string>
+
+
+    <string name="my_ranking_text">My ranking</string>
+    <string name="all_user_ranking_text">Top 30</string>
+
+    <string name="ad_title">Special orb</string>
+    <string name="ad_message">Would you like to see the ad?\nReward : You can get 1 to 3 \'Special orb\' randomly!</string>
+    <string name="ad_reward_message">You have acquired %d \'special orbs\'.</string>
+    <string name="ad_request_error">An error occurred briefly.\nPlease try again.</string>
+
+    <string name="ad_reward_type">%d</string>
+    <string name="ad_reward_0">Luxury box \u0026 Key</string>
+    <string name="ad_reward_1">Special orb</string>
+    <string name="ad_reward_2">Blue essence</string>
+    <string name="ad_reward_3">Orange essence</string>
+    <string name="ad_reward_4">Gold</string>
+
+    <string name="preference_ad_message">After all the advertising is finished, the backup / load process will proceed.</string>
+    <string name="preference_ad_save_success_message">Game data has been saved!</string>
+    <string name="preference_ad_load_success_message">Successfully load game data!</string>
+    <string name="preference_ad_load_failed_message">There is no data stored.\nPlease use the backup feature.</string>
+    <string name="preference_init_success_message">Game data has been successfully initialized!</string>
+
+    <string name="tab1_name">Collection</string>
+    <string name="tab2_name">Factory</string>
+    <string name="tab3_name">Shop</string>
+    <string name="purchase_text">Buy</string>
+    <string name="box_open_text">Open</string>
+    <string name="box_get_result_text">ADD TO LOOT</string>
+    <string name="box_upgrade_result_text">UNLOCK PERMANENTLY</string>
+    <string name="reward_result_text">Acquire an item</string>
+    <string name="open_all_text">\u00A0Open</string>
+
+    <string name="box_text">Luxury box</string>
+    <string name="key_text">Key</string>
+    <string name="rewarded_item_text">Special orb</string>
+    <string name="champion_text">Champion</string>
+    <string name="skin_text">Skin</string>
+    <string name="ward_skin">Ward skin</string>
+
+    <string name="champ_shard_text">Champion Shard</string>
+    <string name="skin_shard_text">Skin Shard</string>
+
+    <string name="whole_champ_text">Champion Permanent</string>
+    <string name="whole_skin_text">Skin Permanent</string>
+
+    <string name="is_having_text">Owned</string>
+    <string name="is_not_having_text">Not Owned</string>
+
+    <string name="forge_text">Re-roll</string>
+    <string name="exchange_to_gem_text">Disenchant</string>
+    <string name="upgrade_frag_text">Upgrade</string>
+
+    <string name="clear_text">Clear</string>
+
+    <string name="wallpaper_text">View the entire image</string>
+    <string name="wallpaper_download">Download image</string>
+    <string name="download_success">Successfully downloaded image.</string>
+    <string name="download_fail">Image download failed.</string>
+    <string name="permission_denined_text">Permission agree is required to use the function.</string>
+
+    <string name="forge_desc_text">Re-roll into random permanent thing</string>
+    <string name="exchange_to_gem_desc_text">Disenchant into essences</string>
+    <string name="upgrade_frag_to_complete_desc_text">Upgrade permanently</string>
+
+    <string name="my_info_text">Profile</string>
+    <string name="tier_text">Tier</string>
+    <string name="resource_text">Resource</string>
+    <string name="gold_text">Gold</string>
+    <string name="champ_short_text">Champ</string>
+    <string name="blue_gem_text">Blue essence</string>
+    <string name="yellow_gem_text">Orange essence</string>
+    <string name="stat_text">Stat</string>
+    <string name="skill_text">Skill</string>
+    <string name="collection_exp_text">Collection EXP</string>
+
+    <string name="material">Materials</string>
+    <string name="champions_text">Champions</string>
+    <string name="skins_text">Skins</string>
+
+    <string name="temp_user_name">Summoner</string>
+    <string name="hello1">Nice to meet you, \'%s\'\n</string>
+    <string name="hello2">Welcome to Amumu World.</string>
+
+    <string name="upgrade_text">Skill Upgrade</string>
+    <string name="warning_disable_upgrade_bc_money">You are short on expenses.</string>
+    <string name="warning_disable_upgrade_bc_max_upgrade">Maximum upgrade figure.</string>
+    <string name="warning_disable_upgrade_bc_before_skill"> You need to upgrade all your skill level.</string>
+    <string name="warning_disable_upgrade_bc_tier">You cannot upgrade because the tier is currently lower than the reinforced tier.</string>
+
+    <string name="unknown_error">An unknown error occurred.\nPlease contact the operator.</string>
+
+    <string name="register">CREATE ACCOUNT</string>
+    <string name="found_account">CAN\'T SIGN IN?</string>
+    <string name="id_text">E-mail</string>
+    <string name="pw_text">PASSWORD</string>
+    <string name="continue_login_state">Stay signed in</string>
+    <string name="find_email_text">Find password</string>
+
+    <!--register text-->
+    <string name="password_condtion1_text">In case of condition special character deviations\n, \u003C\u002C >, (, ), #, \u0027, /, | cannot be used among special characters.</string>
+    <string name="password_condtion2_text">You cannot use the same password as your ID.</string>
+    <string name="password_condtion3_text">Passwords are only available in alphabet, numbers and special characters.</string>
+    <string name="password_condtion4_text">passwords can only be made of alphabet and numbers.</string>
+    <string name="password_condtion5_text">The password format is available.</string>
+
+    <string name="nick_condition_text1">The nickname is available to use.\n Are you sure about using \'%s\'</string>
+    <string name="nick_condition_text2">This nickname already exists.</string>
+    <string name="nick_condition_text3">The nickname box is empty.</string>
+    <string name="nick_condition_text4">Nicknames can only be used in Korean, English, and numbers.</string>
+    <string name="nick_condition_text5">Welcome \'%s\'!\nYour account is created!</string>
+    <string name="nick_condition_text6">Nicknames must consist of at least 2 Korean characters, or at least 4 English characters.</string>
+
+    <string name="nick_condition_error">Internet connection is unstable.\nCheck Wifi or internet connection status.</string>
+
+    <string name="register_condition_text1">Check for nickname redundancy.</string>
+    <string name="register_condition_text2">There are unentered spaces.\nPlease check again.</string>
+    <string name="register_condition_text3">This email is already in use.</string>
+
+    <string name="login_condition_text1">Please check your email and password again.</string>
+
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="check_duplication">Check</string>
+    <string name="reset_nick">Reset</string>
+
+    <string name="not_enough_gold">Not enough gold.</string>
+    <string name="not_enough_essence">Not enough essence.</string>
+    <string name="buy_comment">You purchased %s %s.</string>
+
+    <!-- shop item name-->
+    <string-array name="shop_item_name">
+        <item>@string/material</item>
+
+        <item>Luxury box</item>
+        <item>Key</item>
+        <!--<item>[세트] 명품 상자 \u0026 열쇠 1개</item>-->
+        <item>Blue essence</item>
+        <item>Orange essence</item>
+    </string-array>
+
+    <!-- shop item describe-->
+    <string-array name="shop_item_desc">
+        <item>Material</item>
+
+        <item>You can get 1 luxury box.</item>
+        <item>You can get 1 key.</item>
+        <!--<item>명품 상자와 열쇠 1개를 얻을 수 있다.</item>-->
+        <item>Orange essence can be exchanged for blue essence.\nIt can be used to make champion shard into champion permanent.</item>
+        <item>Blue essence can be exchanged for orange essence.\nIt can be used to make skin shard into skin permanent.</item>
+    </string-array>
+
+    <string-array name="shop_item_bought_count_key">
+        <item>Material</item>
+
+        <item>boughtBoxCount</item>
+        <item>boughtKeyCount</item>
+        <!--<item>boughtBoxAndKeyCount</item>-->
+        <item>boughtBlueGemCount</item>
+        <item>boughtYellowGemCount</item>
+    </string-array>
+
+    <!-- upgrade item name-->
+    <string-array name="pref_upgrade_item_name">
+        <item>AngryAmumu</item>
+        <item>Fatalwound</item>
+        <item>Infinitepunch</item>
+        <item>BlessingofElin</item>
+        <item>Galacticlight</item>
+        <item>Powerup!</item>
+        <item>Lootingblueessence</item>
+        <item>Lootingorangeessence</item>
+        <!--<item>아이언</item>
+        <item>브론즈</item>
+        <item>실버</item>
+        <item>골드</item>
+        <item>플래티넘</item>
+        <item>다이아몬드</item>
+        <item>마스터</item>
+        <item>그랜드마스터</item>
+        <item>챌린저</item>-->
+    </string-array>
+
+    <!-- upgrade item name-->
+    <string-array name="upgrade_item_name">
+        <item>Angry Amumu</item>
+        <item>Fatal wound</item>
+        <item>Infinite punch</item>
+        <item>Blessing of Elin</item>
+        <item>Galactic light</item>
+        <item>Power up!</item>
+        <item>Looting blue essence</item>
+        <item>Looting orange essence</item>
+        <!--<item>아이언</item>
+        <item>브론즈</item>
+        <item>실버</item>
+        <item>골드</item>
+        <item>플래티넘</item>
+        <item>다이아몬드</item>
+        <item>마스터</item>
+        <item>그랜드마스터</item>
+        <item>챌린저</item>-->
+    </string-array>
+
+    <!-- upgrad shop desc-->
+    <string-array name="upgrade_shop_desc">
+        <item><b>[Active]</b> Amumu got angry with continous attacks.</item>
+        <item><b>[Active]</b> Hurt the enemy and attack the void.</item>
+        <item><b>[Active]</b> Attack without giving a break.</item>
+        <item><b>[Passive]</b> With Elin\'s blessing, you can automatically collect gold even without clicking.</item>
+        <item><b>[Passive]</b> With galactic light, you can automatically collect gold even without clicking.</item>
+        <item><b>[Passive]</b> It increases power with enormous force.\nPower is flowing like crazy..!</item>
+        <item><b>[Steal]</b> Steal blue essence with a certain probability during clicks.</item>
+        <item><b>[Steal]</b> Steal orange essence with a certain probability during clicks.</item>
+        <!--<item><b>[스폐셜]</b> 아이언 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 브론즈 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 실버 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 골드 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 플래티넘 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 다이아몬드 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 마스터 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 그랜드마스터 등급의 경우 해당 스킬을 획득한다.</item>
+        <item><b>[스폐셜]</b> 챌린저 등급의 경우 해당 스킬을 획득한다.</item>-->
+    </string-array>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_register_nickname_text">Nickname</string>
+    <string name="prompt_register_id_text">E-mail</string>
+    <string name="prompt_register_pw_text">Password</string>
+    <string name="prompt_register_re_pw_text">Reconfirm password</string>
+    <string name="login_activity_main_text">Please sign in.</string>
+    <string name="register_activity_main_text">Register</string>
+    <string name="prompt_register_nickname_input">+4 characters</string>
+    <string name="prompt_register_id_input">ex) abc123@xmail.com</string>
+    <string name="email_condition1_text">The email format is available.</string>
+    <string name="email_condition2_text">This is not an appropriate email format.</string>
+    <string name="prompt_register_pw_input">6 ~ 15 characters and numbers</string>
+    <string name="prompt_register_re_pw_input">Reconfirm password</string>
+    <string name="prompt_register_duplicate_text">Check redundancy</string>
+    <string name="prompt_find_id_input">Enter email</string>
+    <string name="prompt_explain_find_id">You can reset your password through the mail sent.</string>
+    <string name="prompt_sended_toast_text">The mail has been sent successfully.\nPlease check your e-mail box.</string>
+    <string name="prompt_sended_failed_toast_text">Email failed to send. Please check again to see if this email is correct.</string>
+    <string name="prompt_register_ok">Ok</string>
+    <string name="prompt_register_cancel">Cancel</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_settings">Setting</string>
+
+    <string-array name="pref_language_key">
+        <item>Korean</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="pref_language_value">
+        <item>kr</item>
+        <item>en</item>
+    </string-array>
+
+    <string name="pref_language_english">English</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+
+</resources>

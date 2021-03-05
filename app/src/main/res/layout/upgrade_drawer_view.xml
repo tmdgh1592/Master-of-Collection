@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_view"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:clickable="true"
+    android:layout_marginLeft="-100dp">
+
+    <RelativeLayout
+        android:id="@+id/upgrade_layout"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawer_background"
+        android:layout_marginBottom="65dp">
+
+        <TextView
+            android:id="@+id/upgrade_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/upgrade_text"
+            android:textColor="@color/tabTextColor"
+            android:gravity="center"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/shop_item_font_b"
+            android:layout_centerHorizontal="true"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upgrade_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/upgrade_text"
+            android:layout_height="match_parent"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="1.5dp"
+            android:layout_marginRight="1.5dp"
+            android:layout_marginBottom="0.4dp"
+            android:layout_above="@+id/bottom_divider"/>
+
+        <include
+            android:id="@+id/bottom_divider"
+            layout="@layout/divider_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/gold_per_text_view"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp" />
+
+        <TextView
+            android:id="@+id/gold_per_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:text="0.0 Gold/Click    0.0 Gold/Sec"
+            android:textColor="@color/upgrade_item_desc_text_color"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/upgrade_layout"
+        android:layout_centerVertical="true">
+
+        <!-- width : height = 3 : 4.1-->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:background="@null"
+            android:src="@drawable/drawer_arrow"/>
+
+        <ImageView
+            android:id="@+id/drawer_left_option_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:clickable="true"
+            android:src="@drawable/upgrade_image"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="4dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

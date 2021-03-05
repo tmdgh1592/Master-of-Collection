@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- shop item image -->
+    <array name="shop_item_image">
+        <item>@null</item>
+        <item>@drawable/item_box</item>
+        <item>@drawable/item_key</item>
+        <!--<item>@drawable/item_box_and_key</item>-->
+        <item>@drawable/item_blue_gem</item>
+        <item>@drawable/item_yellow_gem</item>
+    </array>
+
+    <!-- upgrade shop image -->
+    <array name="upgrade_item_image">
+        <item>@drawable/gold_per_click1</item>
+        <item>@drawable/gold_per_click2</item>
+        <item>@drawable/gold_per_click3</item>
+        <item>@drawable/gold_per_sec1</item>
+        <item>@drawable/gold_per_sec2</item>
+        <item>@drawable/gold_per_sec3</item>
+        <item>@drawable/gold_per_steal1</item>
+        <item>@drawable/gold_per_steal2</item>
+        <!--<item>@drawable/tier_iron_icon</item>
+        <item>@drawable/tier_bronze_icon</item>
+        <item>@drawable/tier_silver_icon</item>
+        <item>@drawable/tier_gold_icon</item>
+        <item>@drawable/tier_platinum_icon</item>
+        <item>@drawable/tier_diamond_icon</item>
+        <item>@drawable/tier_master_icon</item>
+        <item>@drawable/tier_grandmaster_icon</item>
+        <item>@drawable/tier_challenger_icon</item>-->
+
+
+    </array>
+
+</resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rank_item_layout"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/rank_view_background_color"
+    android:background="@drawable/major_round_background"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:id="@+id/ranking_value_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp">
+        <TextView
+            android:id="@+id/rank_text"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/major_round_background"
+            android:text="-"
+            android:gravity="center"
+            android:fontFamily="@font/godo_b"
+            android:textSize="13sp"
+            android:textColor="@color/other_ranking_text_color"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/rank_nickname_text"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@+id/ranking_value_linear"
+        android:text="-"
+        android:fontFamily="@font/godo_b"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp">
+            <TextView
+                android:id="@+id/rank_champ_count_text"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/major_round_background"
+                android:text="-"
+                android:gravity="center"
+                android:fontFamily="@font/shop_item_font_b"
+                android:textSize="13sp"
+                android:textColor="@color/rank_data_count_color"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp">
+            <TextView
+                android:id="@+id/rank_skin_count_text"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/major_round_background"
+                android:text="-"
+                android:gravity="center"
+                android:fontFamily="@font/shop_item_font_b"
+                android:textSize="13sp"
+                android:textColor="@color/rank_data_count_color"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
