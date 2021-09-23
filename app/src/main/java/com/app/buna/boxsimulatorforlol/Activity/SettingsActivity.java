@@ -1,66 +1,42 @@
 package com.app.buna.boxsimulatorforlol.Activity;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
-import android.provider.Settings;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.StrikethroughSpan;
 import android.text.style.UnderlineSpan;
-import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.IntentCompat;
-import androidx.preference.PreferenceFragmentCompat;
-
 
 import com.app.buna.boxsimulatorforlol.DB.DBHelper;
 import com.app.buna.boxsimulatorforlol.DTO.CollectData;
 import com.app.buna.boxsimulatorforlol.DTO.ItemFragment;
-import com.app.buna.boxsimulatorforlol.DTO.RankData;
 import com.app.buna.boxsimulatorforlol.DTO.TransferData;
-import com.app.buna.boxsimulatorforlol.DTO.UpgradeData;
 import com.app.buna.boxsimulatorforlol.Manager.GoldManager;
 import com.app.buna.boxsimulatorforlol.Manager.ItemManager;
 import com.app.buna.boxsimulatorforlol.R;
-import com.app.buna.boxsimulatorforlol.Service.BGMService;
 import com.app.buna.boxsimulatorforlol.Util.AppVersion;
 import com.app.buna.boxsimulatorforlol.Util.GameToast;
 import com.app.buna.boxsimulatorforlol.Util.LangUtil;
 import com.app.buna.boxsimulatorforlol.Util.Network;
-import com.app.buna.boxsimulatorforlol.VO.TierCondition;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -71,10 +47,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 public class SettingsActivity extends PreferenceActivity

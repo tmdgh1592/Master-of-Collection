@@ -1,13 +1,5 @@
 package com.app.buna.boxsimulatorforlol.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.DialogInterface;
@@ -31,30 +23,45 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.app.buna.boxsimulatorforlol.Adapter.ShopRecyclerAdapter;
 import com.app.buna.boxsimulatorforlol.Adapter.UpgradeRecyclerAdapter;
 import com.app.buna.boxsimulatorforlol.Broadcast.BgmRestartBroadcast;
 import com.app.buna.boxsimulatorforlol.Broadcast.OnOffBroadcast;
 import com.app.buna.boxsimulatorforlol.DB.DBHelper;
 import com.app.buna.boxsimulatorforlol.DTO.ShopItem;
 import com.app.buna.boxsimulatorforlol.DTO.UpgradeData;
+import com.app.buna.boxsimulatorforlol.Manager.GoldEffectManager;
+import com.app.buna.boxsimulatorforlol.Manager.GoldManager;
 import com.app.buna.boxsimulatorforlol.Manager.ItemManager;
-import com.app.buna.boxsimulatorforlol.Adapter.ShopRecyclerAdapter;
+import com.app.buna.boxsimulatorforlol.Manager.SoundManager;
+import com.app.buna.boxsimulatorforlol.R;
+import com.app.buna.boxsimulatorforlol.Service.BGMService;
 import com.app.buna.boxsimulatorforlol.Service.GoldPerSecService;
 import com.app.buna.boxsimulatorforlol.Util.Cache;
 import com.app.buna.boxsimulatorforlol.Util.GameToast;
-import com.app.buna.boxsimulatorforlol.Service.BGMService;
-import com.app.buna.boxsimulatorforlol.Manager.GoldEffectManager;
-import com.app.buna.boxsimulatorforlol.Manager.GoldManager;
-import com.app.buna.boxsimulatorforlol.Manager.SoundManager;
-import com.app.buna.boxsimulatorforlol.R;
 import com.app.buna.boxsimulatorforlol.Util.LangUtil;
 import com.app.buna.boxsimulatorforlol.Util.Network;
 import com.app.buna.boxsimulatorforlol.Util.ScreenProportion;
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -68,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static ArrayList<Activity> actList = new ArrayList<>();
 
-    private RewardedVideoAd mRewardedVideoAd;
+    private RewardedAd mRewardedAd;
 
     private LinearLayoutManager linearLayoutManager;
     private RecyclerView upgradeRecyclerView;
@@ -133,8 +140,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String nickname;
     private String loginText;
 
-    private com.facebook.ads.RewardedVideoAd rewardedVideoAd;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -157,15 +162,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
-    private void showLoginMessage(){
+    private void showLoginMessage() {
         nickname = setting.getString("nickname", getString(R.string.temp_user_name));
         loginText = getString(R.string.hello1, nickname) + getString(R.string.hello2);
 
         new GameToast(this, loginText, Gravity.TOP, Toast.LENGTH_LONG).show();
     }
 
-    private void setting(){
+    private void setting() {
         setAds();
         settingView();
         setDrawer();
@@ -179,48 +183,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setAds() {
-
-        /*AudienceNetworkAds.initialize(this);
-        rewardedVideoAd = new com.facebook.ads.RewardedVideoAd(this, "2258131987813848_2258134417813605");
-        rewardedVideoAd.setAdListener(new com.facebook.ads.RewardedVideoAdListener() {
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
-            public void onRewardedVideoCompleted() {
-            //성공적으로 광고가 끝날 경우 호출. 보상정보가 rewardItem 에 묶여서 전달된다.
-             Random random = new Random();
-            int rewardCount = random.nextInt(2) + 1;
-            itemManager.addRewardItem(rewardCount);
-              new GameToast(MainActivity.this, getString(R.string.ad_reward_message, rewardCount), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
-          }
-
-          @Override
-          public void onLoggingImpression(Ad ad) {
-
-          }
-
-          @Override
-          public void onRewardedVideoClosed() {
-              rewardedVideoAd.loadAd();
-          }
-
-          @Override
-          public void onError(Ad ad, AdError adError) {
-
-          }
-
-          @Override
-          public void onAdLoaded(Ad ad) {
-
-          }
-
-          @Override
-          public void onAdClicked(Ad ad) {
-
-          }
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                loadAdsRequest();
+            }
         });
-        rewardedVideoAd.loadAd();*/
 
-
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        /*mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
 
             @Override
@@ -262,14 +232,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-        loadRewardedVideoAd();
+        loadRewardedVideoAd();*/
     }
 
-    private void loadRewardedVideoAd(){
-        mRewardedVideoAd.loadAd(getString(R.string.reward_ad_id), new AdRequest.Builder().build());
+    private void loadAdsRequest() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mRewardedAd.load(this, "ca-app-pub-6856965594532028/8365559420", adRequest, new RewardedAdLoadCallback() {
+            @Override
+            public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+                //super.onAdLoaded(rewardedAd);
+                mRewardedAd = rewardedAd;
+
+                mRewardedAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                    @Override
+                    public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                        super.onAdFailedToShowFullScreenContent(adError);
+                    }
+
+                    @Override
+                    public void onAdShowedFullScreenContent() {
+                        //super.onAdShowedFullScreenContent();
+                        mRewardedAd = null;
+                    }
+
+                    @Override
+                    public void onAdDismissedFullScreenContent() {
+                        //super.onAdDismissedFullScreenContent();
+                        loadAdsRequest();
+                    }
+
+                    @Override
+                    public void onAdImpression() {
+                        super.onAdImpression();
+                    }
+                });
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                mRewardedAd = null;
+            }
+        });
     }
 
-    private void settingView(){
+    private void settingView() {
         loadingBar = findViewById(R.id.loading_progress_bar);
         openInfoBtn = findViewById(R.id.my_info_button);
         openInfoBtn.setOnClickListener(this);
@@ -286,7 +293,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerView = findViewById(R.id.drawer_view);
-        findViewById(R.id.upgrade_layout).getLayoutParams().width = new ScreenProportion(this).getItemSize((float)1.2);
+        findViewById(R.id.upgrade_layout).getLayoutParams().width = new ScreenProportion(this).getItemSize((float) 1.2);
 
         drawerLayout.addDrawerListener(drawerListener);
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
@@ -302,7 +309,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void updateGoldPerTextView() {
-        goldPerTextView.setText(new BigDecimal(goldManager.getGoldPerClick()).toString()+" Gold/Click    " + String.format("%.1f", goldManager.getGoldPerSec()) + " Gold/Sec");
+        goldPerTextView.setText(new BigDecimal(goldManager.getGoldPerClick()).toString() + " Gold/Click    " + String.format("%.1f", goldManager.getGoldPerSec()) + " Gold/Sec");
     }
 
     private void setLeftOptions() {
@@ -349,7 +356,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void setSoundManager(){
+    private void setSoundManager() {
 
         /* effect sound */
         soundManager = new SoundManager(MainActivity.this);
@@ -365,15 +372,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setBgmService();
     }
 
-    public void setBgmService(){
-        if(setting.getBoolean("BgmState", true)) {
+    public void setBgmService() {
+        if (setting.getBoolean("BgmState", true)) {
             bgmIntent = new Intent(MainActivity.this, BGMService.class);
             bindService(bgmIntent, conn, BIND_AUTO_CREATE);
         }
     }
 
 
-    private void startGoldPerSecondService(){
+    private void startGoldPerSecondService() {
         //리스타트 서비스 생성
         restartService = new BgmRestartBroadcast();
         Intent bgIntent;
@@ -382,37 +389,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 서비스 시작
         if (Build.VERSION.SDK_INT >= 26) {
             startForegroundService(bgIntent);
-        }else {
+        } else {
             startService(bgIntent);
         }
     }
 
-    private void startOnOffCheckService(){
+    private void startOnOffCheckService() {
         IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         onOffService = new OnOffBroadcast();
         registerReceiver(onOffService, filter);
     }
 
-    private void setGoldPerClick(){
+    private void setGoldPerClick() {
         goldPerClick = goldManager.getGoldPerClick();
     }
 
-    private void setBlueStealChance(){
+    private void setBlueStealChance() {
         blueStealChance = itemManager.getBlueGemChance();
     }
 
-    private void setYellowStealChance(){
+    private void setYellowStealChance() {
         yellowStealChance = itemManager.getYellowGemChance();
     }
 
-    public void refreshResource(){
+    public void refreshResource() {
         goldTextView.setText(String.format("%.0f", goldManager.getGold()));
         blueGemTextView.setText(Integer.toString(itemManager.getBlueGemCount()));
         yellowGemTextView.setText(Integer.toString(itemManager.getYellowGemCount()));
     }
 
-    public void updateShopPrice(){
+    public void updateShopPrice() {
         LangUtil.setLang(this);
         shopRecyclerAdapter.updateReceiptsList(getShopItem());
     }
@@ -429,13 +436,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         refreshResource();
     }
 
-    private void setMonster(){
+    private void setMonster() {
         monster = findViewById(R.id.monster_image_view);
         monster.setOnClickListener(this);
     }
 
 
-    private void setGoldEffect(){
+    private void setGoldEffect() {
         goldEffectManager = new GoldEffectManager(MainActivity.this);
         goldEffectManager.setMonster(monster)
                 .setParentLayout(mainLayout)
@@ -443,12 +450,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.my_info_button:
-                if(soundManager.isLoaded()){
+                if (soundManager.isLoaded()) {
                     soundManager.play(tabClickSoundId);
                 }
                 activityTransIntent = new Intent(MainActivity.this, MyInfoActivity.class);
@@ -464,7 +470,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.reward_button:
                 /*광고 시청 여부 묻는 dialog*/
-                if(Network.state(MainActivity.this)) {
+                if (Network.state(MainActivity.this)) {
                     LangUtil.setLang(MainActivity.this);
                     AlertDialog askAdDialog = new AlertDialog.Builder(this, R.style.DialogMainColorBackground)
                             .setView(getLayoutInflater().inflate(R.layout.ad_ask_layout, null))
@@ -479,9 +485,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    if (mRewardedVideoAd.isLoaded()) {
-                                        mRewardedVideoAd.show();
-                                        //mRewardedVideoAd.show();
+                                    if(mRewardedAd != null) {
+                                        mRewardedAd.show(MainActivity.this, new OnUserEarnedRewardListener() {
+                                            @Override
+                                            public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                                                Random random = new Random();
+                                                int rewardCount = random.nextInt(2) + 1;
+                                                itemManager.addRewardItem(rewardCount);
+                                                new GameToast(MainActivity.this, getString(R.string.ad_reward_message, rewardCount), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
+                                            }
+                                        });
                                     } else {
                                         new GameToast(MainActivity.this, getString(R.string.ad_request_error), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
                                     }
@@ -498,28 +511,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (!askAdDialog.isShowing()) {
                         askAdDialog.show();
                     }
-                }else{
+                } else {
                     Toast.makeText(MainActivity.this, getString(R.string.nick_condition_error), Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.monster_image_view:
-                if(setting.getBoolean("EffectSoundState", true)){
+                if (setting.getBoolean("EffectSoundState", true)) {
                     soundManager.play(coinSoundId);
                 }
                 goldManager.addGold(goldPerClick);
-                goldTextView.setText(Integer.toString((int)goldManager.getGold()));
-                if(blueStealChance != 0 && stealRandom.nextInt(100) < blueStealChance){
+                goldTextView.setText(Integer.toString((int) goldManager.getGold()));
+                if (blueStealChance != 0 && stealRandom.nextInt(100) < blueStealChance) {
                     itemManager.setBlueGemCount(itemManager.getBlueGemCount() + 1);
                     blueGemTextView.setText(Integer.toString(itemManager.getBlueGemCount()));
                 }
-                if(yellowStealChance != 0 && stealRandom.nextInt(100) < yellowStealChance){
+                if (yellowStealChance != 0 && stealRandom.nextInt(100) < yellowStealChance) {
                     itemManager.setYellowGemCount(itemManager.getYellowGemCount() + 1);
                     yellowGemTextView.setText(Integer.toString(itemManager.getYellowGemCount()));
                 }
                 goldEffectManager.showGoldEffect();
                 break;
             case R.id.collection_tab:
-                if(soundManager.isLoaded()){
+                if (soundManager.isLoaded()) {
                     soundManager.play(tabClickSoundId);
                 }
                 activityTransIntent = new Intent(MainActivity.this, CollectionActivity.class);
@@ -535,13 +548,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }, 500);
                 break;
             case R.id.shop_tab:
-                if(soundManager.isLoaded()){
+                if (soundManager.isLoaded()) {
                     soundManager.play(shopOpenSoundId);
                 }
                 openShop();
                 break;
             case R.id.factory_tab:
-                if(soundManager.isLoaded()){
+                if (soundManager.isLoaded()) {
                     soundManager.play(tabClickSoundId);
                 }
 
@@ -558,17 +571,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }, 500);
                 break;
             case R.id.upgrade_button_layout1:   //open
-                if(!drawerLayout.isDrawerOpen(drawerView)){
+                if (!drawerLayout.isDrawerOpen(drawerView)) {
                     drawerLayout.openDrawer(drawerView);
                 }
                 break;
             case R.id.drawer_left_option_icon:  // close
-                if(drawerLayout.isDrawerOpen(drawerView)){
+                if (drawerLayout.isDrawerOpen(drawerView)) {
                     drawerLayout.closeDrawer(drawerView);
                 }
                 break;
             case R.id.ranking_button:
-                if(Network.state(MainActivity.this)) {
+                if (Network.state(MainActivity.this)) {
                     rankBtn.setClickable(false);
                     loadingBar.showProgressBar();
                     new Handler().postDelayed(new Runnable() {
@@ -586,7 +599,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }, 700);
 
-                }else{
+                } else {
                     Toast.makeText(MainActivity.this, getString(R.string.nick_condition_error), Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -602,7 +615,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private ArrayList<ShopItem> getShopItem(){
+    private ArrayList<ShopItem> getShopItem() {
         ArrayList<ShopItem> dataList = new ArrayList<>();
         dataList.clear();
 
@@ -615,7 +628,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TypedArray itemImage = getResources().obtainTypedArray(R.array.shop_item_image);
 
         int i = 0;
-        while(i < itemName.length) {
+        while (i < itemName.length) {
             ShopItem data = new ShopItem(itemCode[i], itemName[i], itemDesc[i], itemPrice[i], itemType[i], itemImage.getResourceId(i, 0), setting.getInt(boughtCountKey[i], 0));
             dataList.add(data);
             i++;
@@ -625,18 +638,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void setShopAdapter(){
+    private void setShopAdapter() {
         final ArrayList<ShopItem> dataList = getShopItem();
         shopRecyclerView = findViewById(R.id.shop_recycler_view);
         shopRecyclerAdapter = new ShopRecyclerAdapter(this, this, dataList);
-        shopRecyclerAdapter.setItemSize(new ScreenProportion(this).getItemSize((float)2.8));
+        shopRecyclerAdapter.setItemSize(new ScreenProportion(this).getItemSize((float) 2.8));
         gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if(dataList.get(position).getItemType() == TITLE){
+                if (dataList.get(position).getItemType() == TITLE) {
                     return 2;
-                }else{
+                } else {
                     return 1;
                 }
             }
@@ -646,7 +659,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         shopRecyclerView.setLayoutManager(gridLayoutManager);
     }
 
-    private ArrayList<UpgradeData> getUpgrades(){
+    private ArrayList<UpgradeData> getUpgrades() {
         ArrayList<UpgradeData> dataList = new ArrayList<>();
 
         String[] itemName = getResources().getStringArray(R.array.upgrade_item_name);
@@ -661,10 +674,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TypedArray itemImage = getResources().obtainTypedArray(R.array.upgrade_item_image);
 
         int i = 0;
-        while(i < itemName.length) {
-            int nowSkillLevel = setting.getInt(prefItemName[i]+"NowSkillLevel", 0);
-            float effectValue = setting.getFloat(prefItemName[i]+"SkillEffect", 0);
-            int upgradePrice = upgradeInitPrice[i] + setting.getInt(prefItemName[i]+"UpgradePrice", 0);
+        while (i < itemName.length) {
+            int nowSkillLevel = setting.getInt(prefItemName[i] + "NowSkillLevel", 0);
+            float effectValue = setting.getFloat(prefItemName[i] + "SkillEffect", 0);
+            int upgradePrice = upgradeInitPrice[i] + setting.getInt(prefItemName[i] + "UpgradePrice", 0);
 
             UpgradeData data = new UpgradeData(upgradeType[i], prefItemName[i], itemName[i], itemDesc[i], nowSkillLevel, maxSkillLevel[i],
                     itemImage.getResourceId(i, 0), effectValue, upgradePrice, tierCondition[i], howMuchUpgradePrice.getFloat(i, 0), howMuchUpgradeEffect.getFloat(i, 0));
@@ -675,7 +688,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return dataList;
     }
 
-    private void deleteUnnecessaryData(){
+    private void deleteUnnecessaryData() {
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -700,8 +713,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onResume() { // 화면이 onResume 되었을 때 restart
         super.onResume();
 
-       // mRewardedVideoAd.resume(this);
-        if(bgmService != null && setting.getBoolean("BgmState", true) == true) {
+        // mRewardedVideoAd.resume(this);
+        if (bgmService != null && setting.getBoolean("BgmState", true) == true) {
             bgmService.restartBgm();
         }
         refreshResource();
@@ -710,7 +723,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onPause() {
-       // mRewardedVideoAd.pause(this);
+        // mRewardedVideoAd.pause(this);
         super.onPause();
     }
 
@@ -722,9 +735,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onDestroy() {
-        if(rewardedVideoAd != null){
-            rewardedVideoAd.destroy();
-            rewardedVideoAd = null;
+        if (mRewardedAd != null) {
+            mRewardedAd = null;
         }
         super.onDestroy();
         //mRewardedVideoAd.destroy(this);
@@ -732,7 +744,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         android.os.Process.killProcess(Process.myPid());
     }
 
-    public void prefUpdate(){
+    public void prefUpdate() {
         LangUtil.setLang(this);
         setGoldPerClick();      // 골드 퍼 클릭
         setBlueStealChance();   // 파랑 정수 획득 확률
@@ -745,23 +757,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onUserLeaveHint() {  // 홈버튼 누르거나 액티비티 전환할 때
-        if(bgmService != null) {
+        if (bgmService != null) {
             bgmService.pauseBgm();
         }
         super.onUserLeaveHint();
     }
 
 
-
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(drawerView)){
+        if (drawerLayout.isDrawerOpen(drawerView)) {
             drawerLayout.closeDrawer(drawerView);
             soundManager.play(tabCloseSoundId);
             return;
         }
-        if(shopLayout.getVisibility() == View.VISIBLE){
-            if(soundManager.isLoaded()) {
+        if (shopLayout.getVisibility() == View.VISIBLE) {
+            if (soundManager.isLoaded()) {
                 soundManager.play(shopCloseSoundId);
             }
             closeShop();
@@ -770,7 +781,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         super.onBackPressed();
     }
-
 
 
     DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
@@ -812,11 +822,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
 
 
-    private void refreshUIPerSec(){
+    private void refreshUIPerSec() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while(!Thread.interrupted()){
+                while (!Thread.interrupted()) {
                     try {
                         Thread.sleep(1000);
                         runOnUiThread(new Runnable() {

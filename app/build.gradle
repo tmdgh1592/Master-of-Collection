@@ -7,8 +7,8 @@ android {
         applicationId "com.app.buna.boxsimulatorforlol"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 26
-        versionName "1.1.0"
+        versionCode 27
+        versionName "1.1.1"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -51,21 +51,21 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-    implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.github.AnJiaoDe:BaseDialog:V1.1.8'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-    implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
     implementation 'com.google.firebase:firebase-database:19.1.0'
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'com.github.shadowalker77:wp7progressbar:1.0.5'
     implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
     implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
-    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    implementation 'com.google.android.gms:play-services-ads:20.4.0'
     implementation 'com.android.support:support-annotations:28.0.0'
     implementation 'com.facebook.android:audience-network-sdk:5.+'
-    implementation 'com.google.firebase:firebase-auth:19.1.0'
-    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
