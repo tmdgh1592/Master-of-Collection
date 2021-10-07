@@ -53,6 +53,8 @@
 
     <string name="app_ad_id">ca-app-pub-6856965594532028~9155240372</string>
     <string name="reward_ad_id">ca-app-pub-6856965594532028/8365559420</string>
+    <string name="banner_ad_id" translatable="false">ca-app-pub-6856965594532028/2150950885</string>
+    <string name="jeonmyeon_ad_id" translatable="false">ca-app-pub-6856965594532028/6385709364</string>
     <string name="save_video_ad_id">ca-app-pub-6856965594532028/6114144067</string>
     <string name="load_video_ad_id">ca-app-pub-6856965594532028/3687947810</string>
     <string name="video_test_ad_id">ca-app-pub-3940256099942544/5224354917</string>

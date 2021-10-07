@@ -7,8 +7,8 @@ android {
         applicationId "com.app.buna.boxsimulatorforlol"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 27
-        versionName "1.1.1"
+        versionCode 28
+        versionName "1.1.2"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,14 +26,6 @@ android {
         }
     }
 
-    /*flavorDimensions "version"
-    productFlavors {
-        flavor1 {
-        }
-        flavor2 {
-            proguardFile 'flavor2-rules.pro'
-        }
-    }*/
 
 }
 

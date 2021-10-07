@@ -44,13 +44,14 @@
             android:layout_marginLeft="10dp"/>
 
         <!--showing reward video-->
-        <include layout="@layout/main_reward_button_layout"
-            android:layout_above="@+id/main_tab_layout"
-            android:layout_toRightOf="@+id/ranking_button"
+        <include
+            layout="@layout/main_reward_button_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/main_tab_layout"
+            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_toRightOf="@+id/ranking_button" />
         <ImageView
             android:id="@+id/config_btn"
             android:layout_width="40dp"
@@ -61,6 +62,17 @@
             android:layout_marginBottom="13dp"
             android:layout_above="@+id/main_tab_layout"
             android:src="@drawable/config_icon"/>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/config_btn"
+            android:layout_marginBottom="50dp"
+            ads:adUnitId="ca-app-pub-6856965594532028/2150950885"
+            ads:adSize="BANNER"/>
 
         <include layout="@layout/main_gold_screen"/>
 

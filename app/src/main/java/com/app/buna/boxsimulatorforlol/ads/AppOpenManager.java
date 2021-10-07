@@ -1,5 +1,7 @@
 package com.app.buna.boxsimulatorforlol.ads;
 
+import static androidx.lifecycle.Lifecycle.Event.ON_START;
+
 import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
@@ -21,12 +23,12 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.appopen.AppOpenAd;
+import com.google.android.gms.auth.api.Auth;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Date;
 
-import static androidx.lifecycle.Lifecycle.Event.ON_START;
-
-public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements LifecycleObserver, Application.ActivityLifecycleCallbacks{
+public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements LifecycleObserver, Application.ActivityLifecycleCallbacks {
     private static final String LOG_TAG = "AppOpenManager";
     //private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/3419835294"; // 테스트 ID
     private static final String AD_UNIT_ID = "ca-app-pub-6856965594532028/4618334148";
@@ -40,21 +42,27 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
     private boolean isShowedAd = false;
     public static boolean isShowingAd = false;
 
-    /** Constructor */
+    /**
+     * Constructor
+     */
     public AppOpenManager(MyApplication myApplication) {
         this.myApplication = myApplication;
         this.myApplication.registerActivityLifecycleCallbacks(this);
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
     }
 
-    /** LifecycleObserver methods */
+    /**
+     * LifecycleObserver methods
+     */
     @OnLifecycleEvent(ON_START)
     public void onStart() {
         showAdIfAvailable();
         Log.d(LOG_TAG, "onStart");
     }
 
-    /** Shows the ad if one isn't already showing. */
+    /**
+     * Shows the ad if one isn't already showing.
+     */
     public void showAdIfAvailable() {
         fetchAd();
         // Only show ad if there is not already an app open ad currently showing
@@ -71,13 +79,17 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
                             AppOpenManager.this.appOpenAd = null;
                             isShowingAd = false;
                             fetchAd();
-                            ActivityCompat.finishAffinity(currentActivity);
-                            currentActivity.startActivity(new Intent(currentActivity, MainActivity.class));
-                            currentActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_in);
+
+                            if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+                                ActivityCompat.finishAffinity(currentActivity);
+                                currentActivity.startActivity(new Intent(currentActivity, MainActivity.class));
+                                currentActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_in);
+                            }
                         }
 
                         @Override
-                        public void onAdFailedToShowFullScreenContent(AdError adError) {}
+                        public void onAdFailedToShowFullScreenContent(AdError adError) {
+                        }
 
                         @Override
                         public void onAdShowedFullScreenContent() {
@@ -95,7 +107,9 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
 
     }
 
-    /** Request an ad */
+    /**
+     * Request an ad
+     */
     public void fetchAd() {
         // Have unused ad, no need to fetch another.
         Log.d("TAG", "fetch");
@@ -106,10 +120,10 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
         /*loadCallback =
                 new AppOpenAd.AppOpenAdLoadCallback() {
                     *//**
-                     * Called when an app open ad has loaded.
-                     *
-                     * @param ad the loaded app open ad.
-                     *//*
+         * Called when an app open ad has loaded.
+         *
+         * @param ad the loaded app open ad.
+         *//*
                     @Override
                     public void onAdLoaded(AppOpenAd ad) {
                         AppOpenManager.this.appOpenAd = ad;
@@ -117,10 +131,10 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
                     }
 
                     *//**
-                     * Called when an app open ad has failed to load.
-                     *
-                     * @param loadAdError the error.
-                     *//*
+         * Called when an app open ad has failed to load.
+         *
+         * @param loadAdError the error.
+         *//*
                     @Override
                     public void onAdFailedToLoad(LoadAdError loadAdError) {
                         // Handle the error.
@@ -154,12 +168,16 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
         return (dateDifference < (numMilliSecondsPerHour * numHours));
     }
 
-    /** Creates and returns ad request. */
+    /**
+     * Creates and returns ad request.
+     */
     private AdRequest getAdRequest() {
         return new AdRequest.Builder().build();
     }
 
-    /** Utility method that checks if ad exists and can be shown. */
+    /**
+     * Utility method that checks if ad exists and can be shown.
+     */
     public boolean isAdAvailable() {
         //return appOpenAd != null;
         return appOpenAd != null && wasLoadTimeLessThanNHoursAgo(4);

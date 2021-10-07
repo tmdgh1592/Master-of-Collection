@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "633309392051-329ktab52nbdmpnhptsoa67lpkrfgbd1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.buna.boxsimulatorforlol",
+            "certificate_hash": "6ab665150e0d918639dbfe5154a63a46e725e1f1"
+          }
+        },
+        {
+          "client_id": "633309392051-6hid94nudr4duhr4i493c529j6cim3gs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.buna.boxsimulatorforlol",
+            "certificate_hash": "c809c21e49670372bfaf7b6ce00d6e3458b4cfd5"
+          }
+        },
+        {
           "client_id": "633309392051-7cv803q9j67g7pvcgt617cjfemct2fp6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -41,7 +57,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-6856965594532028~9155240372"
     }
   ],
   "configuration_version": "1"

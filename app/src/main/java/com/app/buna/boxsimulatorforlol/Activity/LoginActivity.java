@@ -64,6 +64,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -196,6 +198,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
 
     private void firebaseAutoLogin(){
         if (setting.getBoolean("isLoginStateContinue", false) && Network.state(this) && mAuth.getCurrentUser() != null) {
+            Log.d("ddd", "ddddd");
             loginContCheckBox.setChecked(true);
             loginIntent = new Intent(LoginActivity.this, SplashActivity.class);
             startActivity(loginIntent);
@@ -359,7 +362,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
         }
     }
 
-    private void login(final String email, String password){
+    private void login(@NotNull final String email, String password){
         if(email.isEmpty() || password.isEmpty()){
             new LoginToast(this, getString(R.string.login_condition_text1), Gravity.BOTTOM, Toast.LENGTH_SHORT).show();
             return;
@@ -430,7 +433,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     /*firebase에서 nickname찾아서 저장*/
-    private void setNickname(String email){
+    private void setNickname(@NotNull String email){
 
         DatabaseReference emailRef = FirebaseDatabase.getInstance().getReference().child("account").child("nickname").child(email.replace("\u002E", ""));
         emailRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -464,7 +467,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
         return false;
     }
 
-    private void setData(TransferData data) {
+    private void setData(@NotNull TransferData data) {
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 

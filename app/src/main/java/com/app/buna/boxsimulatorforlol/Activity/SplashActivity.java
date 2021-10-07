@@ -1,20 +1,17 @@
 package com.app.buna.boxsimulatorforlol.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.app.buna.boxsimulatorforlol.R;
 import com.app.buna.boxsimulatorforlol.Util.LangUtil;
 import com.app.buna.boxsimulatorforlol.ads.AppOpenManager;
-import com.app.buna.boxsimulatorforlol.application.MyApplication;
-import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.appopen.AppOpenAd;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -30,7 +27,14 @@ public class SplashActivity extends AppCompatActivity {
         LangUtil.setLang(this);
         setContentView(R.layout.activity_splash);
 
-        openManager = ((MyApplication) getApplication()).getAppOpenManager();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            }
+        }, 3000);
+
+        //openManager = ((MyApplication) getApplication()).getAppOpenManager();
 
         //loadResources();
         /*openManager.showAdIfAvailable(new FullScreenContentCallback() {
@@ -81,7 +85,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void launchMainScreen() {
-        Log.d("dd","launch");
         ActivityCompat.finishAffinity(SplashActivity.this);
         startActivity(new Intent(SplashActivity.this, MainActivity.class));
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_in);

@@ -52,6 +52,8 @@ import com.app.buna.boxsimulatorforlol.Util.Network;
 import com.app.buna.boxsimulatorforlol.Util.ScreenProportion;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
@@ -140,6 +142,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String nickname;
     private String loginText;
 
+    private AdView banner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -189,50 +193,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 loadAdsRequest();
             }
         });
-
-        /*mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
-
-            @Override
-            public void onRewardedVideoAdLoaded() {
-                //광고를 성공적으로 불러올 경우 호출되는 코드.
-            }
-            @Override
-            public void onRewardedVideoAdOpened() {
-                //광고가 화면상에 나타날때 호출되는 코드. onRewardedVideoStarted 보다 빠르게 호출된다.
-            }
-            @Override
-            public void onRewardedVideoStarted() {
-                //광고가 시작할때 호출되는 코드.
-            }
-            @Override
-            public void onRewardedVideoAdClosed() {
-                //광고를 닫아버리면 호출되는 코드. 광고를 소진했기 때문에 다음 광고를 미리 불러온다.
-                loadRewardedVideoAd();
-            }
-            @Override
-            public void onRewarded(RewardItem rewardItem) {
-                //성공적으로 광고가 끝날 경우 호출. 보상정보가 rewardItem 에 묶여서 전달된다.
-                Random random = new Random();
-                int rewardCount = random.nextInt(2) + 1;
-                itemManager.addRewardItem(rewardCount);
-                new GameToast(MainActivity.this, getString(R.string.ad_reward_message, rewardCount), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onRewardedVideoAdLeftApplication() {
-                //광고시청 도중에 앱을 종료할 경우 호출되는 코드.
-            }
-            @Override
-            public void onRewardedVideoAdFailedToLoad(int i) {
-                //동영상광고를 불러올 수 없을때 호출되는 코드.
-            }
-
-            @Override
-            public void onRewardedVideoCompleted() {
-
-            }
-        });
-        loadRewardedVideoAd();*/
+        banner = findViewById(R.id.banner);
+        banner.loadAd(new AdRequest.Builder().build());
     }
 
     private void loadAdsRequest() {
