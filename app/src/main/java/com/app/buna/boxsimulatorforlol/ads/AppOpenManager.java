@@ -1,7 +1,5 @@
 package com.app.buna.boxsimulatorforlol.ads;
 
-import static androidx.lifecycle.Lifecycle.Event.ON_START;
-
 import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
@@ -16,17 +14,19 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ProcessLifecycleOwner;
 
 import com.app.buna.boxsimulatorforlol.Activity.MainActivity;
-import com.app.buna.boxsimulatorforlol.Activity.SplashActivity;
+import com.app.buna.boxsimulatorforlol.Util.Network;
 import com.app.buna.boxsimulatorforlol.application.MyApplication;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.appopen.AppOpenAd;
-import com.google.android.gms.auth.api.Auth;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Date;
+
+import static android.content.Context.MODE_PRIVATE;
+import static androidx.lifecycle.Lifecycle.Event.ON_START;
 
 public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements LifecycleObserver, Application.ActivityLifecycleCallbacks {
     private static final String LOG_TAG = "AppOpenManager";
@@ -34,6 +34,7 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
     private static final String AD_UNIT_ID = "ca-app-pub-6856965594532028/4618334148";
     private AppOpenAd appOpenAd = null;
     private Activity currentActivity;
+    public static boolean isOpened = false;
 
     private AppOpenAd.AppOpenAdLoadCallback loadCallback;
 
@@ -64,12 +65,12 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
      * Shows the ad if one isn't already showing.
      */
     public void showAdIfAvailable() {
-        fetchAd();
-        // Only show ad if there is not already an app open ad currently showing
-        // and an ad is available.
-        if (!isShowingAd && isAdAvailable() && !isShowedAd) {
+        /*fetchAd();*/
+
+        if (!isOpened && !isShowingAd && isAdAvailable() && !isShowedAd) {
             Log.d(LOG_TAG, "Will show ad.");
             isShowedAd = true;
+            isOpened = true;
 
             FullScreenContentCallback fullScreenContentCallback =
                     new FullScreenContentCallback() {
@@ -80,9 +81,9 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
                             isShowingAd = false;
                             fetchAd();
 
-                            if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+                            if (myApplication.getBaseContext().getSharedPreferences("setting", MODE_PRIVATE).getBoolean("isLoginStateContinue", false) && Network.state(myApplication.getBaseContext()) && FirebaseAuth.getInstance().getCurrentUser() != null) {
                                 ActivityCompat.finishAffinity(currentActivity);
-                                currentActivity.startActivity(new Intent(currentActivity, MainActivity.class));
+                                currentActivity.startActivity(new Intent(currentActivity, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                 currentActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_in);
                             }
                         }
@@ -90,6 +91,8 @@ public class AppOpenManager extends AppOpenAd.AppOpenAdLoadCallback implements L
                         @Override
                         public void onAdFailedToShowFullScreenContent(AdError adError) {
                         }
+
+
 
                         @Override
                         public void onAdShowedFullScreenContent() {

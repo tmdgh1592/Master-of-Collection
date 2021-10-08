@@ -98,25 +98,19 @@ public class SettingsActivity extends PreferenceActivity
         mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
             @Override
             public void onRewardedVideoAdLoaded() {
-
             }
-
             @Override
             public void onRewardedVideoAdOpened() {
-
             }
-
             @Override
             public void onRewardedVideoStarted() {
                 new GameToast(context, getString(R.string.preference_ad_message), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
             }
-
             @Override
             public void onRewardedVideoAdClosed() {
                 loadSaveRewardedVideoAd();
                 loadLoadRewardedVideoAd();
             }
-
             @Override
             public void onRewarded(RewardItem rewardItem) {
                 if(rewardItem.getType().equals("save")) {
@@ -130,25 +124,17 @@ public class SettingsActivity extends PreferenceActivity
                 }else{
                     new GameToast(context, getString(R.string.unknown_error), Gravity.BOTTOM, Toast.LENGTH_SHORT).show();
                 }
-
             }
-
             @Override
             public void onRewardedVideoAdLeftApplication() {
-
             }
-
             @Override
             public void onRewardedVideoAdFailedToLoad(int i) {
-
             }
-
             @Override
             public void onRewardedVideoCompleted() {
-
             }
         });
-
         loadSaveRewardedVideoAd();
         loadLoadRewardedVideoAd();
     }*/
@@ -156,6 +142,7 @@ public class SettingsActivity extends PreferenceActivity
 
     private void restartApp(String type){
         Intent i;
+        getSharedPreferences("setting",MODE_PRIVATE).edit().putBoolean("isRestart", true).commit();
         if(type.equals("LOGOUT")) {
             i = new Intent(this, LoginActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // 이미 loginActivity가 Task에 있을 경우 이미 있는 것을 가져옴
@@ -183,7 +170,7 @@ public class SettingsActivity extends PreferenceActivity
         versionPref = getPreferenceScreen().findPreference("version_pref");
         savePref = getPreferenceScreen().findPreference("save_data_pref");
         loadPref = getPreferenceScreen().findPreference("load_data_pref");
-   //     initPref = getPreferenceScreen().findPreference("init_data_pref");
+        //     initPref = getPreferenceScreen().findPreference("init_data_pref");
         changeLangPref = (ListPreference) getPreferenceScreen().findPreference("change_lang_pref");
         bgmSwitch = (SwitchPreference) getPreferenceScreen().findPreference("bgm_sound_switch");
         effectSwitch = (SwitchPreference) getPreferenceScreen().findPreference("effect_sound_switch");
@@ -319,7 +306,6 @@ public class SettingsActivity extends PreferenceActivity
                 message = getString(R.string.clear_alert_message);
                 ssBuilder = new SpannableStringBuilder(message);
                 ssBuilder.setSpan(foregroundColorSpan, 0, message.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
                 msgDialog = new AlertDialog.Builder(context)
                         .setTitle(getString(R.string.clear_alert_title))
                         .setMessage(ssBuilder)
@@ -331,7 +317,6 @@ public class SettingsActivity extends PreferenceActivity
                                 restartApp();
                             }
                         }).setNegativeButton(getString(R.string.cancel), null).create();
-
                 if(!msgDialog.isShowing()) {
                     msgDialog.show();
                 }
@@ -364,13 +349,13 @@ public class SettingsActivity extends PreferenceActivity
                                             .requestEmail()
                                             .build();
                                     GoogleSignIn.getClient(SettingsActivity.this, gso).signOut()
-                                    .addOnCompleteListener(SettingsActivity.this,
-                                            new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    setResult(1);
-                                                }
-                                            });
+                                            .addOnCompleteListener(SettingsActivity.this,
+                                                    new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            setResult(1);
+                                                        }
+                                                    });
 
 
                                     restartApp("LOGOUT");
@@ -630,7 +615,6 @@ public class SettingsActivity extends PreferenceActivity
     /*private void loadSaveRewardedVideoAd(){
         mRewardedVideoAd.loadAd(getString(R.string.save_video_ad_id), new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
     }
-
     private void loadLoadRewardedVideoAd(){
         mRewardedVideoAd.loadAd(getString(R.string.load_video_ad_id), new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
     }

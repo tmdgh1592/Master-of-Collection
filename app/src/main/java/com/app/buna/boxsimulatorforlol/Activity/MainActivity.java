@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Process;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -163,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         showLoginMessage();
 
         Cache.clearApplicationData(this);
+        editor.putBoolean("isRestart", false).commit();
     }
 
 
@@ -184,6 +187,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setMonster();
         setGoldEffect();
         setShop();
+        prefUpdate();
     }
 
     private void setAds() {
@@ -566,10 +570,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.config_btn:
-                activityTransIntent = new Intent(MainActivity.this, SettingsActivity.class);
-                activityTransIntent.setFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+                activityTransIntent = new Intent(this, SettingsActivity.class);
+                activityTransIntent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION|Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 actList.add(this);
-                startActivity(activityTransIntent);
+                startActivityForResult(activityTransIntent, 1592);
                 break;
             default:
                 break;
@@ -804,5 +808,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }).start();
     }
-
 }

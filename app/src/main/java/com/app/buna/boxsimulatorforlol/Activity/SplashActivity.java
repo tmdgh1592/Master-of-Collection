@@ -27,12 +27,15 @@ public class SplashActivity extends AppCompatActivity {
         LangUtil.setLang(this);
         setContentView(R.layout.activity_splash);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-            }
-        }, 3000);
+        if(!getIntent().getBooleanExtra("autoLogin", false)) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                }
+            }, 3000);
+        }
 
         //openManager = ((MyApplication) getApplication()).getAppOpenManager();
 

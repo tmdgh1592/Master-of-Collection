@@ -1,7 +1,9 @@
 package com.app.buna.boxsimulatorforlol.application;
 
 import android.app.Application;
+import android.util.Log;
 
+import com.app.buna.boxsimulatorforlol.StaticData;
 import com.app.buna.boxsimulatorforlol.ads.AppOpenManager;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -14,14 +16,19 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        MobileAds.initialize(
-                this,
-                new OnInitializationCompleteListener() {
-                    @Override
-                    public void onInitializationComplete(InitializationStatus initializationStatus) {}
-                });
-        appOpenManager = new AppOpenManager(this);
+
+        if (!getSharedPreferences("setting", MODE_PRIVATE).getBoolean("isRestart", false)) {
+            MobileAds.initialize(
+                    this,
+                    new OnInitializationCompleteListener() {
+                        @Override
+                        public void onInitializationComplete(InitializationStatus initializationStatus) {
+                        }
+                    });
+            appOpenManager = new AppOpenManager(this);
+        }
     }
+
 
     public AppOpenManager getAppOpenManager() {
         return appOpenManager;

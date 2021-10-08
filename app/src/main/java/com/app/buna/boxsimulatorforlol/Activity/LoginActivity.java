@@ -113,6 +113,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
         setting = getSharedPreferences("setting", MODE_PRIVATE);
         editor = setting.edit();
 
+        editor.putBoolean("isOpened", false).commit();
+
         settingView();
         setGoogleLogin();
         setVersion();
@@ -188,7 +190,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
     private void autoLogin(){
         if(setting.getBoolean("isLoginStateContinue", false)){
             loginContCheckBox.setChecked(true);
-            loginIntent = new Intent(LoginActivity.this, SplashActivity.class);
+            loginIntent = new Intent(LoginActivity.this, SplashActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("autoLogin", true);
             startActivity(loginIntent);
             overridePendingTransition(android.R.anim.fade_out, android.R.anim.fade_in);
             finish();
@@ -198,9 +200,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
 
     private void firebaseAutoLogin(){
         if (setting.getBoolean("isLoginStateContinue", false) && Network.state(this) && mAuth.getCurrentUser() != null) {
-            Log.d("ddd", "ddddd");
             loginContCheckBox.setChecked(true);
-            loginIntent = new Intent(LoginActivity.this, SplashActivity.class);
+            loginIntent = new Intent(LoginActivity.this, SplashActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("autoLogin", true);
             startActivity(loginIntent);
             overridePendingTransition(android.R.anim.fade_out, android.R.anim.fade_in);
             finish();
@@ -229,6 +230,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
                             loginWithFirebase(user);
+                            setting.edit().putBoolean("isLoginStateContinue", true).commit();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("", "signInWithCredential:failure", task.getException());
@@ -283,7 +285,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
             });
         }
 
-        loginIntent = new Intent(LoginActivity.this, SplashActivity.class);
+        loginIntent = new Intent(LoginActivity.this, SplashActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("autoLogin", false);
         editor.putBoolean("isLoginStateContinue", loginContCheckBox.isChecked());
         editor.putString("email", myEmail);
         editor.commit();
@@ -412,7 +414,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
                                 });
                             }
 
-                            loginIntent = new Intent(LoginActivity.this, SplashActivity.class);
+                            loginIntent = new Intent(LoginActivity.this, SplashActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra("autoLogin", false);
                             editor.putBoolean("isLoginStateContinue", loginContCheckBox.isChecked());
                             editor.putString("email", email);
                             editor.commit();

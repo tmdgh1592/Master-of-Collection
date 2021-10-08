@@ -2,6 +2,7 @@ package com.app.buna.boxsimulatorforlol.Manager;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.app.buna.boxsimulatorforlol.Activity.MainActivity;
 import com.app.buna.boxsimulatorforlol.R;
@@ -107,7 +108,7 @@ public class ItemManager {
     }
 
     public float getBlueGemChance() {
-        return setting.getFloat("blueGemChance", 0);
+        return setting.getFloat("blueGemChance", 0.0f);
     }
 
     public void setBlueGemChance(float blueGemChance) {
