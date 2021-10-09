@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".application.MyApplication"
@@ -21,8 +21,11 @@
         android:roundIcon="@drawable/rounded_app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.RankActivity" android:theme="@style/rankingStyle"/>
-        <activity android:name=".Activity.SplashActivity"/>
+        <activity android:name=".Activity.GamePickerActivity"></activity>
+        <activity
+            android:name=".Activity.RankActivity"
+            android:theme="@style/rankingStyle" />
+        <activity android:name=".Activity.SplashActivity" />
         <activity
             android:name=".Activity.SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -35,9 +38,11 @@
         <activity android:name=".Activity.WebSplashActivity" />
         <activity android:name=".Activity.MyInfoActivity" />
         <activity android:name=".Activity.FindAccountActivity" />
-        <activity android:name=".Activity.RegisterActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".Activity.LoginActivity"
+        <activity
+            android:name=".Activity.RegisterActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Activity.LoginActivity"
             android:parentActivityName=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
