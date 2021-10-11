@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import com.app.buna.boxsimulatorforlol.manager.GoldManager;
 import com.app.buna.boxsimulatorforlol.R;
@@ -40,8 +41,9 @@ public class ScoreActivity extends AppCompatActivity {
 
     final String video_reward_id = "ca-app-pub-6856965594532028/1564427832";
     private RewardedAd mRewardedAd;
-    int score = 0;
-    int bonus = 0;
+    private int score = 0;
+    private int bonus = 0;
+    private boolean isGetReward = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class ScoreActivity extends AppCompatActivity {
                 int mistake = i.getIntExtra("mistake", 0);
                 int number_of_card = i.getIntExtra("numberOfCard", 1);
 
-                score = (number_of_card * 30) - mistake;
+                score = (number_of_card * 20) - mistake;
                 characterImage.setBackgroundResource(R.drawable.anim_twisted_pate);
 
                 tv.setText("\tCard" + " :  " + number_of_card + "\n\t" + "Score: " + score
@@ -74,14 +76,28 @@ public class ScoreActivity extends AppCompatActivity {
             case "jump":
                 bonus = (int) (Math.random() * 50 + 1);
                 score = i.getIntExtra("score", 0);
-                tv.setText("Score: " + score + "\n" + "Reward : " + new DecimalFormat("#.##").format(Math.floor(score / 10) + bonus));
+                tv.setText("Score: " + score + "\n" + "Reward : " + new DecimalFormat("#.##").format(Math.floor(score / 5) + bonus));
                 characterImage.setBackgroundResource(R.drawable.game_master_e);
 
-                score = (int) (Math.floor(score / 10));
+                score = (int) (Math.floor(score / 5));
 
                 /* image width setting */
                 ViewGroup.LayoutParams params = characterImage.getLayoutParams();
                 params.width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 180, getResources().getDisplayMetrics());
+                break;
+            case "hangman":
+                bonus = (int) (Math.random() * 100 + 1);
+                score = i.getIntExtra("score", 0);
+
+                characterImage.setBackgroundResource(R.drawable.anim_twisted_pate);
+
+                tv.setText("Score: " + score + "\n" + "Reward : " + (score + bonus));
+
+                params = characterImage.getLayoutParams();
+                params.width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 130, getResources().getDisplayMetrics());
+                characterImage.setBackgroundResource(R.drawable.anim_thresh);
+                animationDrawable = (AnimationDrawable) characterImage.getBackground();
+                animationDrawable.start();
                 break;
         }
 
@@ -107,11 +123,13 @@ public class ScoreActivity extends AppCompatActivity {
                                         mRewardedAd.show(ScoreActivity.this, new OnUserEarnedRewardListener() {
                                             @Override
                                             public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                                                isGetReward = true;
                                                 getReward(2, (score + bonus));
                                                 new GameToast(ScoreActivity.this, getString(R.string.game_ad_reward_message, ((score + bonus) * 2)), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
                                             }
                                         });
                                     } else {
+                                        loadAdsRequest();
                                         new GameToast(ScoreActivity.this, getString(R.string.game_ad_request_error), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
                                     }
                                 }
@@ -136,7 +154,7 @@ public class ScoreActivity extends AppCompatActivity {
         rewardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getReward(1, score);
+                getReward(1, score+bonus);
                 finish();
                 new GameToast(ScoreActivity.this, getString(R.string.game_ad_reward_message, score + bonus), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
             }
@@ -180,8 +198,10 @@ public class ScoreActivity extends AppCompatActivity {
                     @Override
                     public void onAdDismissedFullScreenContent() {
                         //super.onAdDismissedFullScreenContent();
-                        loadAdsRequest();
-                        finish();
+                        if(isGetReward) {
+                            loadAdsRequest();
+                            finish();
+                        }
                     }
 
                     @Override

@@ -1,23 +1,22 @@
 package com.app.buna.boxsimulatorforlol.game.hangman;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.app.buna.boxsimulatorforlol.R;
-import com.app.buna.boxsimulatorforlol.activity.MainActivity;
+import com.app.buna.boxsimulatorforlol.game.ScoreActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,53 +36,53 @@ public class HangmanActivity extends AppCompatActivity {
     TextView txtLettersTried;
     TextView txtTriesLeft;
     String lettersTried;
-    final String MESSAGE_WITH_LETTERS_TRIED="Letters Tried: ";
+    final String MESSAGE_WITH_LETTERS_TRIED = "Letters Tried: ";
     String triesLeft;
-    final String WINNING_MESSAGE="YOU WON";
-    final String LOSING_MESSAGE="YOU LOST";
+    final String WINNING_MESSAGE = "Thresh : YOU WON";
+    final String LOSING_MESSAGE = "Thresh : YOU LOST! Hahaha";
 
-    void revealLetterInWord(char letter){
-        int indexOfLetter=wordToBeGuessed.indexOf(letter);
+    void revealLetterInWord(char letter) {
+        int indexOfLetter = wordToBeGuessed.indexOf(letter);
 
         //loop if index is positive or 0
-        while(indexOfLetter>=0){
-            wordDisplayedCharArray[indexOfLetter]=wordToBeGuessed.charAt(indexOfLetter);
-            indexOfLetter =wordToBeGuessed.indexOf(letter,indexOfLetter+1);
+        while (indexOfLetter >= 0) {
+            wordDisplayedCharArray[indexOfLetter] = wordToBeGuessed.charAt(indexOfLetter);
+            indexOfLetter = wordToBeGuessed.indexOf(letter, indexOfLetter + 1);
         }
         //update the string as well
-        wordDisplayedString=String.valueOf(wordDisplayedCharArray);
+        wordDisplayedString = String.valueOf(wordDisplayedCharArray);
     }
 
-    void displayWordOnScreen(){
+    void displayWordOnScreen() {
         StringBuilder formattedString = new StringBuilder();
-        for(char character : wordDisplayedCharArray){
+        for (char character : wordDisplayedCharArray) {
             formattedString.append(character).append(" ");
         }
         txtWordToBeGuessed.setText(formattedString.toString());
     }
 
-    void initializeGame(){
+    void initializeGame() {
         //1.WORD
         //shuffle array list and get first element, and then remove it
         Collections.shuffle(myListOfWords);
-        wordToBeGuessed=myListOfWords.get(0);
+        wordToBeGuessed = myListOfWords.get(0);
         myListOfWords.remove(0);
 
         //initialize char array
-        wordDisplayedCharArray=wordToBeGuessed.toCharArray();
+        wordDisplayedCharArray = wordToBeGuessed.toCharArray();
 
         //add underscores
-        for(int i=1;i<wordDisplayedCharArray.length-1;i++){
-            wordDisplayedCharArray[i]='_';
+        for (int i = 1; i < wordDisplayedCharArray.length - 1; i++) {
+            wordDisplayedCharArray[i] = '_';
         }
         //reveal all occurrences of first character
         revealLetterInWord(wordDisplayedCharArray[0]);
 
         //reveal all occurrences of last character
-        revealLetterInWord(wordDisplayedCharArray[wordDisplayedCharArray.length-1]);
+        revealLetterInWord(wordDisplayedCharArray[wordDisplayedCharArray.length - 1]);
 
         //initialize a string from this char aart(for search purpose)
-        wordDisplayedString=String.valueOf(wordDisplayedCharArray);
+        wordDisplayedString = String.valueOf(wordDisplayedCharArray);
 
         //display word
         displayWordOnScreen();
@@ -94,58 +93,60 @@ public class HangmanActivity extends AppCompatActivity {
 
         //3.LETTER TRIED
         //initialize string for letter tried with a space
-        lettersTried=" ";
+        lettersTried = " ";
 
         //display on screen
         txtLettersTried.setText(MESSAGE_WITH_LETTERS_TRIED);
 
         //4.TRIES LEFT
         //initialize the string for tries left
-        triesLeft="♥ ♥ ♥ ♥ ♥";
+        triesLeft = " ♥ ♥ ♥ ♥ ♥";
         txtTriesLeft.setText(triesLeft);
 
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangman);
 
+        ((AdView) findViewById(R.id.banner)).loadAd(new AdRequest.Builder().build());
+
         //initialize Variables
-        myListOfWords= new ArrayList<>();
-        txtWordToBeGuessed=(TextView) findViewById(R.id.txtWordToBeGuessed);
-        edtInput=(EditText) findViewById(R.id.edtInput);
-        txtLettersTried=(TextView) findViewById(R.id.txtLettersTried);
-        txtTriesLeft =(TextView) findViewById(R.id.txtTriesLeft);
+        myListOfWords = new ArrayList<>();
+        txtWordToBeGuessed = (TextView) findViewById(R.id.txtWordToBeGuessed);
+        edtInput = (EditText) findViewById(R.id.edtInput);
+        txtLettersTried = (TextView) findViewById(R.id.txtLettersTried);
+        txtTriesLeft = (TextView) findViewById(R.id.txtTriesLeft);
 
         //traverse database file and populate array list
-        InputStream myInputStream=null;
-        Scanner in=null;
+        InputStream myInputStream = null;
+        Scanner in = null;
         String aWord;
 
         try {
-            myInputStream=getAssets().open("hangman_words.txt");
-            in=new Scanner(myInputStream);
-            while(in.hasNext()){
-                aWord=in.next();
+            myInputStream = getAssets().open("hangman_words.txt");
+            in = new Scanner(myInputStream);
+            while (in.hasNext()) {
+                aWord = in.next();
                 myListOfWords.add(aWord);
 
             }
 
         } catch (IOException e) {
-            Toast.makeText(HangmanActivity.this,e.getClass().getSimpleName()+": "+e.getMessage(),Toast.LENGTH_SHORT).show();
-        }
-        finally {
+            Toast.makeText(HangmanActivity.this, e.getClass().getSimpleName() + ": " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        } finally {
             //close Scanner
-            if(in!=null){
+            if (in != null) {
                 in.close();
             }
             //close InputStream
-            try{
-                if(myInputStream !=null){
+            try {
+                if (myInputStream != null) {
                     myInputStream.close();
                 }
             } catch (IOException e) {
-                Toast.makeText(HangmanActivity.this,e.getClass().getSimpleName()+": "+e.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(HangmanActivity.this, e.getClass().getSimpleName() + ": " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -158,17 +159,20 @@ public class HangmanActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 //if there is some letter in input field
-                if(s.length() != 0){
+                if (s.length() != 0) {
                     checkIfLetterIsInWord(s.charAt(0));
                 }
-
             }
+
             @Override
             public void afterTextChanged(Editable s) {
-
+                edtInput.removeTextChangedListener(this);
+                edtInput.setText("");
+                edtInput.addTextChangedListener(this);
             }
         });
 
@@ -181,18 +185,20 @@ public class HangmanActivity extends AppCompatActivity {
         });
     }
 
-    void checkIfLetterIsInWord(char letter){
+    void checkIfLetterIsInWord(char letter) {
         //if letter was found inside the word to be guessed
-        if(wordToBeGuessed.indexOf(letter)>=0){
+        if (wordToBeGuessed.indexOf(letter) >= 0) {
             //if letter was not displayed yet
-            if(wordDisplayedString.indexOf(letter)<0){
+            if (wordDisplayedString.indexOf(letter) < 0) {
                 //replace the underscore with that letter
                 revealLetterInWord(letter);
                 //update the changes on screen
                 displayWordOnScreen();
                 //check if the game is won
-                if(!wordDisplayedString.contains("_")){
+                if (!wordDisplayedString.contains("_")) {
                     txtTriesLeft.setText(WINNING_MESSAGE);
+                    startActivity(new Intent(this, ScoreActivity.class).putExtra("from", "hangman").putExtra("score", wordToBeGuessed.length() * 10));
+                    finish();
                 }
             }
         }
@@ -201,25 +207,25 @@ public class HangmanActivity extends AppCompatActivity {
             //decrease the no of tries left, and show on screen
             decreaseAndDisplayTriesLeft();
             //check if the game is lost
-            if(triesLeft.isEmpty()){
+            if (triesLeft.isEmpty()) {
                 txtTriesLeft.setText(LOSING_MESSAGE);
                 txtWordToBeGuessed.setText(wordToBeGuessed);
             }
         }
 
         //display the letter that was tried
-        if(lettersTried.indexOf(letter)<0){
-            lettersTried+=letter+", ";
-            String messageToBeDisplayed=MESSAGE_WITH_LETTERS_TRIED+ lettersTried;
+        if (lettersTried.indexOf(letter) < 0) {
+            lettersTried += letter + ", ";
+            String messageToBeDisplayed = MESSAGE_WITH_LETTERS_TRIED + lettersTried;
             txtLettersTried.setText(messageToBeDisplayed);
         }
     }
 
-    void decreaseAndDisplayTriesLeft(){
+    void decreaseAndDisplayTriesLeft() {
         //if there are still some tries left
-        if(!triesLeft.isEmpty()){
+        if (!triesLeft.isEmpty()) {
             //take out the last 2 characters from this string
-            triesLeft=triesLeft.substring(0, triesLeft.length()-2);
+            triesLeft = triesLeft.substring(0, triesLeft.length() - 2);
             txtTriesLeft.setText(triesLeft);
         }
     }

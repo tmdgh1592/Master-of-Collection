@@ -10,8 +10,8 @@ android {
         applicationId "com.app.buna.boxsimulatorforlol"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 31
-        versionName "1.1.3"
+        versionCode 32
+        versionName "1.1.4"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -328,6 +328,14 @@
         <item>쓰레쉬의 영혼의 행맨</item>
     </string-array>
 
+    <string name="hangman_edit_text">단어 입력</string>
+    <string name="retry">재도전</string>
+    <string name="hangman_desc_title">쓰레쉬의 게임 룰</string>
+    <string name="hangman_desc">1. 단어는 리그오브레전드의 챔피언 영어 이름 입니다.
+        \n2. 만약 글자를 맞추면, 승리에 가까워질 것입니다.
+        \n3. 반대로 틀리면, 당신의 ♥가 줄어들어 단어를 입력할 수 있는 기회가 줄어듭니다.
+    </string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_settings">환경 설정</string>

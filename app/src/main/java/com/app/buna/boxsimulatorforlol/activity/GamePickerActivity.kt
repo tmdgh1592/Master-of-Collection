@@ -43,13 +43,28 @@ class GamePickerActivity : AppCompatActivity(), ClickListener {
     override fun onClick(position: Int) {
         when (position) {
             0 -> {
-                startActivity(Intent(this, CardGameActivity::class.java))
+                startActivity(
+                    Intent(
+                        this,
+                        CardGameActivity::class.java
+                    ).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                )
             }
             1 -> {
-                startActivity(Intent(this, RunningGameActivity::class.java))
+                startActivity(
+                    Intent(
+                        this,
+                        RunningGameActivity::class.java
+                    ).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                )
             }
             2 -> {
-                startActivity(Intent(this, HangmanActivity::class.java))
+                startActivity(
+                    Intent(
+                        this,
+                        HangmanActivity::class.java
+                    ).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                )
             }
         }
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_in)

@@ -462,6 +462,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                             }
                                         });
                                     } else {
+                                        loadAdsRequest();
                                         new GameToast(MainActivity.this, getString(R.string.main_ad_request_error), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
                                     }
                                 }
@@ -576,7 +577,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(activityTransIntent, 1592);
                 break;
             case R.id.my_game_button:
-                startActivity(new Intent(this, GamePickerActivity.class));
+                startActivity(new Intent(this, GamePickerActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 break;
             default:
                 break;

@@ -67,6 +67,7 @@ public class CardGameActivity extends AppCompatActivity {
                             score++;
                             if (score == max_skor) {        //game is finished
                                 Intent i = new Intent(CardGameActivity.this, ScoreActivity.class);
+                                i.putExtra("from", "card");
                                 i.putExtra("mistake", mistake);
                                 i.putExtra("numberOfCard", numberofCard);
                                 startActivity(i);

@@ -326,6 +326,14 @@
         <item>Thresh\'s Hangman of Spirits</item>
     </string-array>
 
+    <string name="hangman_edit_text">Input One Letter</string>
+    <string name="retry">RETRY</string>
+    <string name="hangman_desc_title">Thresh\'s Game Rules</string>
+    <string name="hangman_desc">1. Word is champion english name of LoL.
+        \n2. If it is part of the word, you\'re close to winning.
+        \n3. If it is not part of the word, uh-oh you lose an ♥ and you can see the number of chances you have left.
+    </string>
+
     <string name="master_yi">Master Yi!</string>
     <string name="run">Run!!!</string>
 
