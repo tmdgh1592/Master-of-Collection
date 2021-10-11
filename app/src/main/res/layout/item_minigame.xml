@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.app.buna.boxsimulatorforlol.dto.MiniGameItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless" >
+
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:background="#4D424242"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/game_name"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/game_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.gameName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="12dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/tabIconPressedColor"
+            app:layout_constraintTop_toBottomOf="@+id/background_image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

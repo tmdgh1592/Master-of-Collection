@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dp"
+    android:weightSum="1"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+
+    <TextView
+        android:id="@+id/ad_dialog_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ad_dialog_text_color"
+        android:layout_weight="0.9"
+        android:text="@string/main_ad_message"
+        android:layout_marginLeft="20dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@null"
+        android:src="@drawable/reward_item_icon"
+        android:layout_marginLeft="4dp"/>
+
+
+</LinearLayout>

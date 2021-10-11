@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -17,6 +20,10 @@ android {
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
+    }
+
+    buildFeatures{
+        dataBinding = true
     }
 
     buildTypes {
@@ -56,6 +63,7 @@ dependencies {
     implementation 'com.facebook.android:audience-network-sdk:5.+'
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.airbnb.android:lottie:4.2.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

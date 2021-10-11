@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.GridLayout;
 
 import com.app.buna.boxsimulatorforlol.R;
+import com.app.buna.boxsimulatorforlol.game.ScoreActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class CardGameActivity extends AppCompatActivity {
     int last_card = 0;   //flip last card
@@ -19,7 +22,7 @@ public class CardGameActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("score",score);
+        outState.putInt("score", score);
     }
 
     @Override
@@ -32,17 +35,20 @@ public class CardGameActivity extends AppCompatActivity {
             score = 0;
         setContentView(R.layout.activity_game);
 
+        ((AdView)findViewById(R.id.banner)).loadAd(new AdRequest.Builder().build());
+
         Card.isMix = true;                                  //static value
 
         //final String s = i.getStringExtra("name");        //we can use getTypeExtra when we send value to this activity
 
         final GridLayout gl = (GridLayout) findViewById(R.id.cards);        //because of final is used in inner functions
-        final int numberofCard = 6 * 4;
+        final int numberofCard = 4 * 5;
         final int max_skor = numberofCard / 2;
         final Card cards[] = new Card[numberofCard];
 
         for(int j = 1;j <= numberofCard;j++) {
             cards[j-1]=new Card(this, j, numberofCard);     //create a new object(card)
+
 
             Card.isMix = false;
 
@@ -60,10 +66,11 @@ public class CardGameActivity extends AppCompatActivity {
                             k.isSpin = false;
                             score++;
                             if (score == max_skor) {        //game is finished
-                                Intent i = new Intent(CardGameActivity.this, CardScoreActivity.class);
+                                Intent i = new Intent(CardGameActivity.this, ScoreActivity.class);
                                 i.putExtra("mistake", mistake);
                                 i.putExtra("numberOfCard", numberofCard);
                                 startActivity(i);
+                                finish();
                             }
                             last_card = 0;
                         }
@@ -77,7 +84,7 @@ public class CardGameActivity extends AppCompatActivity {
                                     k.Spin();
                                     k2.Spin();
                                 }
-                            },500);
+                            },800);
                             mistake++;
                             last_card = 0;
                         }
@@ -104,7 +111,7 @@ public class CardGameActivity extends AppCompatActivity {
         Thread thread2 = new Thread(new Runnable() {        //Mix cards
             @Override
             public void run() {
-                for(int j = 0;j < numberofCard;j++) {
+                for(int j = 0; j < numberofCard;j++) {
                     int random = (int)(Math.random()*numberofCard);
                     Card k = cards[random];
                     cards[random] = cards[j];

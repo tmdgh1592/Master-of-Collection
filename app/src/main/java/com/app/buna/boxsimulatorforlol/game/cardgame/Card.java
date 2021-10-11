@@ -2,6 +2,10 @@ package com.app.buna.boxsimulatorforlol.game.cardgame;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.GridLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
@@ -21,7 +25,22 @@ public class Card extends AppCompatButton {
     Drawable face;
     Drawable back;
 
-    static int[] icons_animal = new int[]{R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f};
+    @Override
+    public void setLayoutParams(ViewGroup.LayoutParams params) {
+        /*params.width = 230;
+        params.height = 230;*/
+        GridLayout.LayoutParams param = new GridLayout.LayoutParams();
+        param.width = 230;
+        param.height = 230;
+        param.setMargins(20,20,0,20);
+        super.setLayoutParams(param);
+    }
+
+
+
+    static int[] icons_champion = new int[]{R.drawable.aatrox_0, R.drawable.amumu_0, R.drawable.ahri_0, R.drawable.bard_0,
+    R.drawable.zac_0, R.drawable.akali_0, R.drawable.blitzcrank_0, R.drawable.tahmkench_0,
+    R.drawable.leesin_0, R.drawable.teemo_0};
 
     public Card(@NonNull Context context, int id, int number_of_Cards) {
         super(context);
@@ -47,7 +66,7 @@ public class Card extends AppCompatButton {
         card_number = number_of_Cards/2;        //unique card number
 
         index = (id - 1) % card_number;
-        faceSideOfCardID = icons_animal[index];
+        faceSideOfCardID = icons_champion[index];
         backSideOfCardID = R.drawable.backside;
 
         back = ContextCompat.getDrawable(context,backSideOfCardID);
@@ -61,8 +80,25 @@ public class Card extends AppCompatButton {
             return;
 
         if(!isOpen) {   //arkası cevriliyse
-            setBackground(face);
-            isOpen=true;
+            Animation anim = AnimationUtils.loadAnimation(getContext(), android.R.anim.fade_out);
+            anim.setAnimationListener(new Animation.AnimationListener() {
+                                          @Override
+                                          public void onAnimationStart(Animation animation) {
+
+                                          }
+
+                                          @Override
+                                          public void onAnimationEnd(Animation animation) {
+                                              setBackground(face);
+                                              isOpen=true;
+                                          }
+
+                                          @Override
+                                          public void onAnimationRepeat(Animation animation) {
+
+                                          }
+                                      });
+            startAnimation(anim);
         }
         else {
             setBackground(back);
@@ -72,11 +108,11 @@ public class Card extends AppCompatButton {
 
     public static void Mix() {
         if (isMix) {
-            for (int j = 0; j < icons_animal.length; j++) {
-                int random = (int) (Math.random() * icons_animal.length);
-                int k = icons_animal[random];
-                icons_animal[random] = icons_animal[j];
-                icons_animal[j] = k;
+            for (int j = 0; j < icons_champion.length; j++) {
+                int random = (int) (Math.random() * icons_champion.length);
+                int k = icons_champion[random];
+                icons_champion[random] = icons_champion[j];
+                icons_champion[j] = k;
             }
         }
     }

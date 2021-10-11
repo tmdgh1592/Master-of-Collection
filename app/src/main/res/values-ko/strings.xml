@@ -60,10 +60,10 @@
     <string name="my_ranking_text">나의 랭킹</string>
     <string name="all_user_ranking_text">Top 30</string>
 
-    <string name="ad_title">스폐셜 구</string>
-    <string name="ad_message">광고를 시청하시겠습니까?\n보상 : \'스폐셜 구\' 1개 ~ 3개 랜덤으로 획득</string>
-    <string name="ad_reward_message">\'스폐셜 구\' %d개를 획득하였습니다.</string>
-    <string name="ad_request_error">잠시 오류가 발생했습니다.\n다시 시도해주시기 바랍니다.</string>
+    <string name="main_ad_title">스폐셜 구</string>
+    <string name="main_ad_message">광고를 시청하시겠습니까?\n보상 : \'스폐셜 구\' 1개 ~ 3개 랜덤으로 획득</string>
+    <string name="main_ad_reward_message">\'스폐셜 구\' %d개를 획득하였습니다.</string>
+    <string name="main_ad_request_error">잠시 오류가 발생했습니다.\n다시 시도해주시기 바랍니다.</string>
 
     <string name="ad_reward_type">%d개</string>
     <string name="ad_reward_0">명품상자 \u0026 열쇠</string>
@@ -306,6 +306,27 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string name="reward_text">보상 수령</string>
+    <string name="reward_ad_text">보상 부스터!</string>
+
+    <string name="game_ad_title">보상 부스터!</string>
+    <string name="game_ad_message">광고를 시청하시겠습니까?\n보상 : 코인을 2배로 획득하실 수 있습니다!!</string>
+    <string name="game_ad_reward_message">코인 %d개를 획득하였습니다!</string>
+    <string name="game_ad_request_error">잠시 오류가 발생했습니다.\n다시 시도해주시기 바랍니다</string>
+    <string name="excellent">대단해요!!</string>
+
+    <string name="master_yi">마스터 이!</string>
+    <string name="run">달려!!!</string>
+
+    <string name="back_press">한 번 더 누르시면 게임이 종료됩니다.</string>
+    <string name="mini_game">미니 게임</string>
+
+    <string-array name="game_names">
+        <item>트위스티드 페이트의 카드 게임</item>
+        <item>달려라! 마스터이!</item>
+        <item>쓰레쉬의 영혼의 행맨</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

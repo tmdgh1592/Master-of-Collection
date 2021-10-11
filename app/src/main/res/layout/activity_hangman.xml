@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/txtTriesLeft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="♥ ♥ ♥ ♥ ♥"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtWordToBeGuessed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Word"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtTriesLeft" />
+
+
+    <EditText
+        android:maxLength="1"
+        android:gravity="center"
+        android:id="@+id/edtInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:width="30dp"
+        android:hint="Input One Letter"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtWordToBeGuessed" />
+
+
+    <TextView
+        android:id="@+id/txtLettersTried"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Letters Tried:"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/edtInput" />
+
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#B39DDB"
+        android:backgroundTint="#EF9A9A"
+        android:shadowColor="#EDE7F6"
+        android:text="Reset"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtLettersTried" />
+
+    <LinearLayout
+        android:id="@+id/rule_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/btn"
+        android:background="#81C784"
+        android:paddingVertical="4dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/pixel_thresh_right"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="12dp"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thresh's Rules"
+            android:padding="10sp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#90CAF9"
+        android:backgroundTint="#A5D6A7"
+        android:padding="10sp"
+        android:text="1. Word is champion name of LoL.
+        \n2. If it is part of the word, you're close to winning.
+        \n3. If it is not part of the word, uh-oh you lose an X and you can see the number of chances you have left."
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/rule_layout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

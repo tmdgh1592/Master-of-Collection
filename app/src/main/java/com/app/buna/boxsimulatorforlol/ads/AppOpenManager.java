@@ -13,8 +13,8 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ProcessLifecycleOwner;
 
-import com.app.buna.boxsimulatorforlol.Activity.MainActivity;
-import com.app.buna.boxsimulatorforlol.Util.Network;
+import com.app.buna.boxsimulatorforlol.activity.MainActivity;
+import com.app.buna.boxsimulatorforlol.util.Network;
 import com.app.buna.boxsimulatorforlol.application.MyApplication;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;

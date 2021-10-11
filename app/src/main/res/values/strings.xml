@@ -63,10 +63,19 @@
     <string name="my_ranking_text">My ranking</string>
     <string name="all_user_ranking_text">Top 30</string>
 
-    <string name="ad_title">Special orb</string>
-    <string name="ad_message">Would you like to see the ad?\nReward : You can get 1 to 3 \'Special orb\' randomly!</string>
-    <string name="ad_reward_message">You have acquired %d \'special orbs\'.</string>
-    <string name="ad_request_error">An error occurred briefly.\nPlease try again.</string>
+    <string name="main_ad_title">Special orb</string>
+    <string name="main_ad_message">Would you like to see the ad?\nReward : You can get 1 to 3 \'Special orb\' randomly!</string>
+    <string name="main_ad_reward_message">You have acquired %d \'special orbs\'.</string>
+    <string name="main_ad_request_error">An error occurred briefly.\nPlease try again.</string>
+
+    <string name="game_ad_title">Reward Booster!</string>
+    <string name="game_ad_message">Would you like to see the ad?\nReward : You can get reward coin Twice!!</string>
+    <string name="game_ad_reward_message">You have acquired %d Coins!</string>
+    <string name="game_ad_request_error">An error occurred briefly.\nPlease try again.</string>
+    <string name="excellent">Excellent!!</string>
+
+    <string name="master_yi">Master Yi!</string>
+    <string name="run">Run!!!</string>
 
     <string name="ad_reward_type">%d</string>
     <string name="ad_reward_0">Luxury box \u0026 Key</string>
@@ -309,6 +318,19 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string name="reward_text">Get Reward</string>
+    <string name="reward_ad_text">Reward Booster!</string>
+
+    <string name="back_press">Press it one more time to end the game.</string>
+
+    <string name="mini_game">Mini Game</string>
+
+    <string-array name="game_names">
+        <item>Twisted Fate\'s Card Game</item>
+        <item>Run! Master Yi!</item>
+        <item>Thresh\'s Hangman of Spirits</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

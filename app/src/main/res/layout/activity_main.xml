@@ -27,14 +27,24 @@
         <include layout="@layout/main_upgrade_option_layout"/>
 
         <!--entering myinfo button-->
-        <include layout="@layout/main_info_button_layout"
+        <include layout="@layout/main_game_button_layout"
             android:layout_above="@+id/main_tab_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="65dp"
+            android:layout_marginBottom="120dp"
             android:layout_marginLeft="10dp"/>
 
+        <!--entering myinfo button-->
+
         <!--showing ranking-->
+        <include
+            layout="@layout/main_info_button_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/main_tab_layout"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="65dp" />
+
         <include layout="@layout/main_ranking_button_layout"
             android:layout_above="@+id/main_tab_layout"
             android:layout_toRightOf="@+id/my_info_button"

@@ -4,41 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bluebackground"
-    tools:context=".ScoreActivity">
+    android:clipToPadding="true"
+    android:background="@color/white"
+    tools:context=".game.ScoreActivity">
 
+    <ImageView
+        android:id="@+id/character_image_view"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@drawable/anim_twisted_pate"
+        app:layout_constraintTop_toBottomOf="@+id/reward_result_text_view"
+        app:layout_constraintBottom_toTopOf="@+id/reward_booster_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-    <Button
-        android:id="@+id/trybtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:text="Try Again"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/get_reward"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="319dp"
-        android:layout_height="324dp"
-        android:textColor="@android:color/white"
-        android:textSize="80dp"
-        android:textStyle="italic"
+        android:id="@+id/excellent_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#E57373"
+        android:text="@string/excellent"
+        android:textSize="40dp"
+        android:textStyle="italic|bold"
+        app:layout_constraintBottom_toTopOf="@+id/reward_result_text_view"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/reward_result_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#3E3E3E"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="60dp"/>
 
-    <Button
-        android:id="@+id/menubtn"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/reward_booster_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="88dp"
-        android:text="Menu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_marginBottom="20dp"
+        android:clipToPadding="true"
+        app:cardElevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/reward_btn">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/icon_reward_booster" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reward_ad_text"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/reward_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:clipToPadding="true"
+        android:text="@string/reward_text"
+        app:cardElevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/reward_booster_btn"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/coin_image" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reward_text"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,4 +9,10 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <array name="minigame_background">
+        <item>@drawable/minigame_background_1</item>
+        <item>@drawable/minigame_background_2</item>
+        <item>@drawable/minigame_background_3</item>
+    </array>
 </resources>
