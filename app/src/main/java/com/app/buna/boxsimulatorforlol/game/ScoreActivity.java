@@ -125,7 +125,6 @@ public class ScoreActivity extends AppCompatActivity {
                                             public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
                                                 isGetReward = true;
                                                 getReward(2, (score + bonus));
-                                                new GameToast(ScoreActivity.this, getString(R.string.game_ad_reward_message, ((score + bonus) * 2)), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
                                             }
                                         });
                                     } else {
@@ -156,7 +155,6 @@ public class ScoreActivity extends AppCompatActivity {
             public void onClick(View view) {
                 getReward(1, score+bonus);
                 finish();
-                new GameToast(ScoreActivity.this, getString(R.string.game_ad_reward_message, score + bonus), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -164,6 +162,7 @@ public class ScoreActivity extends AppCompatActivity {
 
     private void getReward(int multiple, int score) {
         new GoldManager(this).addGold(score * multiple);
+        new GameToast(ScoreActivity.this, getString(R.string.game_ad_reward_message, score), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
     }
 
     private void setAds() {
@@ -217,5 +216,10 @@ public class ScoreActivity extends AppCompatActivity {
                 mRewardedAd = null;
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

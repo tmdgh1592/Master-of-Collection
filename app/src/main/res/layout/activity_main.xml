@@ -21,7 +21,7 @@
             android:layout_centerVertical="true"
             android:clickable="false"
             android:background="@null"
-            android:src="@drawable/amumu"/>
+            android:src="@drawable/amumu_skin_1"/>
 
         <!--open upgrade drawer view button-->
         <include layout="@layout/main_upgrade_option_layout"/>

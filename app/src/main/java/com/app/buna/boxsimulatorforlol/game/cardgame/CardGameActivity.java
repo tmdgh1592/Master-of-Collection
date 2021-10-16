@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -48,7 +49,6 @@ public class CardGameActivity extends AppCompatActivity {
 
         for(int j = 1;j <= numberofCard;j++) {
             cards[j-1]=new Card(this, j, numberofCard);     //create a new object(card)
-
 
             Card.isMix = false;
 
@@ -132,7 +132,7 @@ public class CardGameActivity extends AppCompatActivity {
             @Override
             public void run() {
                 for(int j = 0;j < numberofCard;j++) {
-                    gl.setRowCount(4);
+                    gl.setRowCount(5);
                     gl.setColumnCount(4);       //set row and column count to grid
                     gl.addView(cards[j]);       //add cards to grid
                 }

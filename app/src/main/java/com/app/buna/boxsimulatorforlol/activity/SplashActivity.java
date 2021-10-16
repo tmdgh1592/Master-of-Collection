@@ -12,11 +12,11 @@ import androidx.core.app.ActivityCompat;
 import com.app.buna.boxsimulatorforlol.R;
 import com.app.buna.boxsimulatorforlol.util.LangUtil;
 import com.app.buna.boxsimulatorforlol.ads.AppOpenManager;
+import com.app.buna.boxsimulatorforlol.util.Network;
 
 public class SplashActivity extends AppCompatActivity {
 
     private int term = 2000;
-    private AppOpenManager openManager;
     private boolean isAdShown = false;
     private boolean isAdDismissed = false;
     private boolean isLoadCompleted = false;
@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
         LangUtil.setLang(this);
         setContentView(R.layout.activity_splash);
 
-        if(!getIntent().getBooleanExtra("autoLogin", false)) {
+        if(!Network.state(this) || !getIntent().getBooleanExtra("autoLogin", false)) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {

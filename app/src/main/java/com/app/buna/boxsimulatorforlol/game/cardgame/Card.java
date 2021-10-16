@@ -2,7 +2,10 @@ package com.app.buna.boxsimulatorforlol.game.cardgame;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.GridLayout;
@@ -25,14 +28,19 @@ public class Card extends AppCompatButton {
     Drawable face;
     Drawable back;
 
+
     @Override
     public void setLayoutParams(ViewGroup.LayoutParams params) {
         /*params.width = 230;
         params.height = 230;*/
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(displayMetrics);
+
         GridLayout.LayoutParams param = new GridLayout.LayoutParams();
-        param.width = 230;
-        param.height = 230;
-        param.setMargins(20,20,0,20);
+        param.width = displayMetrics.widthPixels/4;
+        param.height = displayMetrics.heightPixels/7;
+        param.setMargins(0, 20,-20,20);
         super.setLayoutParams(param);
     }
 

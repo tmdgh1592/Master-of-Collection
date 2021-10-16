@@ -16,7 +16,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/banner"
         android:columnCount="4"
-        android:rowCount="4">
+        android:rowCount="5">
     </GridLayout>
 
     <com.google.android.gms.ads.AdView
