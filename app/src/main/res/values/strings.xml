@@ -64,13 +64,14 @@
     <string name="all_user_ranking_text">Top 30</string>
 
     <string name="main_ad_title">Special orb</string>
-    <string name="main_ad_message">Would you like to see the ad?\nReward : You can get 1 to 3 \'Special orb\' randomly!</string>
+    <string name="main_ad_message">Would you like to see the ad?\nReward : You can get 2 to 4 \'Special orb\' randomly!</string>
     <string name="main_ad_reward_message">You have acquired %d \'special orbs\'.</string>
     <string name="main_ad_request_error">An error occurred briefly.\nPlease try again.</string>
 
     <string name="game_ad_title">Reward Booster!</string>
-    <string name="game_ad_message">Would you like to see the ad?\nReward : You can get reward coin Twice!!</string>
+    <string name="game_ad_message">Would you like to see the ad?\nReward : You can get Reward item Twice!!</string>
     <string name="game_ad_reward_message">You have acquired %d Coins!</string>
+    <string name="game_ad_extra_reward_message">You\'ve earned %d coins and %d speical rewards!\nCheck out the Inventory!</string>
     <string name="game_ad_request_error">An error occurred briefly.\nPlease try again.</string>
     <string name="excellent">Excellent!!</string>
 
@@ -103,6 +104,7 @@
     <string name="box_text">Luxury box</string>
     <string name="key_text">Key</string>
     <string name="rewarded_item_text">Special orb</string>
+    <string name="game_speical_item_text">Special jewel</string>
     <string name="champion_text">Champion</string>
     <string name="skin_text">Skin</string>
     <string name="ward_skin">Ward skin</string>

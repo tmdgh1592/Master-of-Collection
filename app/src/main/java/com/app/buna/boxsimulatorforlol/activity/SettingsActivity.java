@@ -15,6 +15,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
@@ -32,6 +33,15 @@ import com.app.buna.boxsimulatorforlol.util.AppVersion;
 import com.app.buna.boxsimulatorforlol.util.GameToast;
 import com.app.buna.boxsimulatorforlol.util.LangUtil;
 import com.app.buna.boxsimulatorforlol.util.Network;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,6 +53,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,8 +65,9 @@ import java.util.Map;
 public class SettingsActivity extends PreferenceActivity
         implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
 
-    //private RewardedVideoAd mRewardedVideoAd;
-
+    //private RewardedVideoAd mRewardedVideoAd;loadData();
+    private InterstitialAd mInterstitialSaveAd;
+    private InterstitialAd mInterstitialLoadAd;
     private DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("account").child("userinfo");
     private DatabaseReference svRef = FirebaseDatabase.getInstance().getReference().child("account");
     private DatabaseReference rankRef = FirebaseDatabase.getInstance().getReference().child("rank");
@@ -80,7 +92,7 @@ public class SettingsActivity extends PreferenceActivity
         addPreferencesFromResource(R.xml.root_preferences);
 
         context = this;
-        //setAd();
+        setAds();
 
         itemManager = new ItemManager(this);
         goldManager = new GoldManager(this);
@@ -91,6 +103,109 @@ public class SettingsActivity extends PreferenceActivity
         settingView();
         setViewFunc();
     }
+
+    private void setAds() {
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(@NonNull @NotNull InitializationStatus initializationStatus) {
+            }
+        });
+        loadSaveAd();
+        loadLoadAd();
+    }
+
+    private void loadSaveAd() {
+        InterstitialAd.load(this, "ca-app-pub-6856965594532028/6385709364", new AdRequest.Builder().build(),
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialSaveAd = interstitialAd;
+                        mInterstitialSaveAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                            @Override
+                            public void onAdDismissedFullScreenContent() {
+                                // Called when fullscreen content is dismissed.
+                                Log.d("TAG", "The ad was dismissed.");
+                                saveData();
+                                saveLank();
+                                new GameToast(context, getString(R.string.preference_ad_save_success_message), Gravity.BOTTOM, Toast.LENGTH_SHORT).show();
+                                loadSaveAd();
+                            }
+
+                            @Override
+                            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                // Called when fullscreen content failed to show.
+                                Log.d("TAG", "The ad failed to show.");
+                            }
+
+                            @Override
+                            public void onAdShowedFullScreenContent() {
+                                // Called when fullscreen content is shown.
+                                // Make sure to set your reference to null so you don't
+                                // show it a second time.
+                                mInterstitialSaveAd = null;
+                                Log.d("TAG", "The ad was shown.");
+                            }
+                        });
+
+                        Log.i("TAG", "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i("TAG", loadAdError.getMessage());
+                        mInterstitialSaveAd = null;
+                    }
+                });
+    }
+
+
+    private void loadLoadAd() {
+        InterstitialAd.load(this, "ca-app-pub-6856965594532028/4681184379", new AdRequest.Builder().build(),
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialLoadAd = interstitialAd;
+                        mInterstitialLoadAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                            @Override
+                            public void onAdDismissedFullScreenContent() {
+                                // Called when fullscreen content is dismissed.
+                                Log.d("TAG", "The ad was dismissed.");
+                                loadData();
+                            }
+
+                            @Override
+                            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                // Called when fullscreen content failed to show.
+                                Log.d("TAG", "The ad failed to show.");
+                            }
+
+                            @Override
+                            public void onAdShowedFullScreenContent() {
+                                // Called when fullscreen content is shown.
+                                // Make sure to set your reference to null so you don't
+                                // show it a second time.
+                                mInterstitialLoadAd = null;
+                                Log.d("TAG", "The ad was shown.");
+                            }
+                        });
+
+                        Log.i("TAG", "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i("TAG", loadAdError.getMessage());
+                        mInterstitialLoadAd = null;
+                    }
+                });
+    }
+
 
 
     /*private void setAd() {
@@ -258,9 +373,9 @@ public class SettingsActivity extends PreferenceActivity
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 if(Network.state(context)){
-                                    saveData();
-                                    saveLank();
-                                    new GameToast(context, getString(R.string.preference_ad_save_success_message), Gravity.BOTTOM, Toast.LENGTH_SHORT).show();
+                                    if(mInterstitialSaveAd != null) {
+                                        mInterstitialSaveAd.show(SettingsActivity.this);
+                                    }
                                     //mRewardedVideoAd.show();
                                 }else{
                                     new GameToast(context, getString(R.string.nick_condition_error), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
@@ -286,8 +401,9 @@ public class SettingsActivity extends PreferenceActivity
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 if(Network.state(context)){
-                                    loadData();
-                                    //mRewardedVideoAd.show();
+                                    if(mInterstitialLoadAd != null) {
+                                        mInterstitialLoadAd.show(SettingsActivity.this);
+                                    }
                                 }else{
                                     new GameToast(context, getString(R.string.nick_condition_error), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
                                 }
@@ -399,7 +515,7 @@ public class SettingsActivity extends PreferenceActivity
                     itemManager.getBlueGemChance(), itemManager.getYellowGemChance(),
                     ItemFragment.getChampFragData(this), ItemFragment.getSkinFragData(context),
                     CollectData.getChampCollectData(this), CollectData.getSkinCollectData(this),
-                    getSkillsLevel());
+                    getSkillsLevel(), itemManager.getGameRewardItemCount());
 
             Map<String, Object> postDataHash = postData.toMap();
             Map<String, Object> childUpdate = new HashMap<>();
@@ -521,6 +637,7 @@ public class SettingsActivity extends PreferenceActivity
         itemManager.setBoxCount(data.getBox());
         itemManager.setKeyCount(data.getKey());
         itemManager.setRewardItemCount(data.getRewardItem());
+        itemManager.setGameRewardItemCount(data.getGameRewardItem());
         editor.putInt("boughtBoxCount", data.getBoxBoughtCount());
         editor.putInt("boughtKeyCount", data.getKeyBoughtCount());
 

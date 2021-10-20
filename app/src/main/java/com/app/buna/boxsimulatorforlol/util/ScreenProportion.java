@@ -12,11 +12,19 @@ public class ScreenProportion {
         this.context = context;
     }
 
-    public int getItemSize(float proportion){
+    public int getItemWidthSize(float proportion){
         DisplayMetrics dm = new DisplayMetrics();
         ((Activity)context).getWindowManager().getDefaultDisplay().getMetrics(dm);
 
         return (int)(dm.widthPixels / proportion);
     }
+
+    public int getItemHeightSize(float proportion){
+        DisplayMetrics dm = new DisplayMetrics();
+        ((Activity)context).getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        return (int)(dm.heightPixels / proportion);
+    }
+
 
 }

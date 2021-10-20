@@ -3,7 +3,6 @@ package com.app.buna.boxsimulatorforlol.game.cardgame;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -15,6 +14,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
 
 import com.app.buna.boxsimulatorforlol.R;
+import com.app.buna.boxsimulatorforlol.util.ScreenProportion;
 
 public class Card extends AppCompatButton {
 
@@ -38,8 +38,8 @@ public class Card extends AppCompatButton {
         wm.getDefaultDisplay().getMetrics(displayMetrics);
 
         GridLayout.LayoutParams param = new GridLayout.LayoutParams();
-        param.width = displayMetrics.widthPixels/4;
-        param.height = displayMetrics.heightPixels/7;
+        param.width = new ScreenProportion(getContext()).getItemWidthSize((float)4);
+        param.height = new ScreenProportion(getContext()).getItemHeightSize((float)7.5);
         param.setMargins(0, 20,-20,20);
         super.setLayoutParams(param);
     }

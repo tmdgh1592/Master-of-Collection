@@ -194,16 +194,17 @@ public class Game {
 	}
 
 	private void gameOver(Canvas canvas) {
-		// clear screen
+		// go to reward activity
 		Intent resultIntent = new Intent(context, ScoreActivity.class)
 				.putExtra("from", "jump")
-				.putExtra("score", curScore);
+				.putExtra("score", curScore)
+				.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 		context.startActivity(resultIntent);
 
-		canvas.drawRect(0, 0, width, height, clearPaint);
+		//canvas.drawRect(0, 0, width, height, clearPaint);
 		
-		canvas.drawText("GAME OVER", canvas.getWidth()/3, height/2, bigBlackPaint);
+		//canvas.drawText("GAME OVER", canvas.getWidth()/3, height/2, bigBlackPaint);
 
 		callback.onFinish();
 	}

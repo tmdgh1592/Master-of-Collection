@@ -61,7 +61,7 @@
     <string name="all_user_ranking_text">Top 30</string>
 
     <string name="main_ad_title">스폐셜 구</string>
-    <string name="main_ad_message">광고를 시청하시겠습니까?\n보상 : \'스폐셜 구\' 1개 ~ 3개 랜덤으로 획득</string>
+    <string name="main_ad_message">광고를 시청하시겠습니까?\n보상 : \'스폐셜 구\' 2개 ~ 4개 랜덤으로 획득</string>
     <string name="main_ad_reward_message">\'스폐셜 구\' %d개를 획득하였습니다.</string>
     <string name="main_ad_request_error">잠시 오류가 발생했습니다.\n다시 시도해주시기 바랍니다.</string>
 
@@ -91,6 +91,7 @@
     <string name="box_text">명품 상자</string>
     <string name="key_text">열쇠</string>
     <string name="rewarded_item_text">스폐셜 구</string>
+    <string name="game_speical_item_text">스폐셜 보석</string>
     <string name="champion_text">챔피언</string>
     <string name="skin_text">스킨</string>
     <string name="ward_skin">와드 스킨</string>
@@ -311,8 +312,9 @@
     <string name="reward_ad_text">보상 부스터!</string>
 
     <string name="game_ad_title">보상 부스터!</string>
-    <string name="game_ad_message">광고를 시청하시겠습니까?\n보상 : 코인을 2배로 획득하실 수 있습니다!!</string>
+    <string name="game_ad_message">광고를 시청하시겠습니까?\n보상 : 보상을 2배로 획득하실 수 있습니다!!</string>
     <string name="game_ad_reward_message">코인 %d개를 획득하였습니다!</string>
+    <string name="game_ad_extra_reward_message">코인 %d개와 스폐셜 보상 %d개를 획득하였습니다!\n인벤토리를 확인해보세요!</string>
     <string name="game_ad_request_error">잠시 오류가 발생했습니다.\n다시 시도해주시기 바랍니다</string>
     <string name="excellent">대단해요!!</string>
 

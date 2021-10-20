@@ -18,7 +18,19 @@ public class ItemManager {
         editor = setting.edit();
     }
 
+    public int getGameRewardItemCount() {
+        return setting.getInt("gameRewardItem", 0);
+    }
 
+    public void addGameRewardItem(int addRewardItemCount){
+        editor.putInt("gameRewardItem", getGameRewardItemCount()+addRewardItemCount);
+        editor.commit();
+    }
+
+    public void setGameRewardItemCount(int gameRewardItemCount) {
+        editor.putInt("gameRewardItem", gameRewardItemCount);
+        editor.commit();
+    }
 
     public int getRewardItemCount(){
         return setting.getInt("rewardItem", 0);
@@ -127,6 +139,7 @@ public class ItemManager {
         switch (itemCode) {
             case ItemCode.BOX:
             case ItemCode.KEY:
+            case ItemCode.GAME_SPEICAL_ITEM:
             case ItemCode.BOX_AND_KEY_SET:
                 return 1;
             case ItemCode.BLUE_GEM:

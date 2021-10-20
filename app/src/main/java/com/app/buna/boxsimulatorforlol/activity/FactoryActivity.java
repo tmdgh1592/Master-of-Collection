@@ -108,7 +108,7 @@ public class FactoryActivity extends AppCompatActivity implements View.OnClickLi
 
                 adapter = new FactoryRecyclerAdapter(FactoryActivity.this, tempList, FactoryActivity.this);
                 adapter.setHasStableIds(true);
-                adapter.setItemSize(new ScreenProportion(FactoryActivity.this).getItemSize((float)5.2));
+                adapter.setItemSize(new ScreenProportion(FactoryActivity.this).getItemWidthSize((float)5.2));
                 gridLayoutManager = new GridLayoutManager(FactoryActivity.this, 4);
                 gridLayoutManager.setItemPrefetchEnabled(true);
                 gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -210,6 +210,7 @@ public class FactoryActivity extends AppCompatActivity implements View.OnClickLi
         dataList.add(new ItemFragment(true, FragType.FRAG_MATERIAL, ItemCode.BOX, getString(R.string.box_text), itemManager.getBoxCount(), R.drawable.item_box));
         dataList.add(new ItemFragment(true, FragType.FRAG_MATERIAL, ItemCode.KEY, getString(R.string.key_text), itemManager.getKeyCount(), R.drawable.item_key));
         dataList.add(new ItemFragment(true, FragType.FRAG_MATERIAL, ItemCode.REWARD_ITEM, getString(R.string.rewarded_item_text), itemManager.getRewardItemCount(), R.drawable.reward_item_icon));
+        dataList.add(new ItemFragment(true, FragType.FRAG_MATERIAL, ItemCode.GAME_SPEICAL_ITEM, getString(R.string.game_speical_item_text), itemManager.getGameRewardItemCount(), R.drawable.game_reward));
 
         addChampionFragData(dataList);
         addSkinFragData(dataList);

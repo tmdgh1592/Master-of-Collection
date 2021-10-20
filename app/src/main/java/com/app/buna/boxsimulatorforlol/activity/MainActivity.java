@@ -259,7 +259,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerView = findViewById(R.id.drawer_view);
-        findViewById(R.id.upgrade_layout).getLayoutParams().width = new ScreenProportion(this).getItemSize((float) 1.2);
+        findViewById(R.id.upgrade_layout).getLayoutParams().width = new ScreenProportion(this).getItemWidthSize((float) 1.2);
 
         drawerLayout.addDrawerListener(drawerListener);
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
@@ -456,7 +456,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                             @Override
                                             public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
                                                 Random random = new Random();
-                                                int rewardCount = random.nextInt(2) + 1;
+                                                int rewardCount = random.nextInt(3) + 2;
                                                 itemManager.addRewardItem(rewardCount);
                                                 new GameToast(MainActivity.this, getString(R.string.main_ad_reward_message, rewardCount), Gravity.BOTTOM, Toast.LENGTH_LONG).show();
                                             }
@@ -612,7 +612,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final ArrayList<ShopItem> dataList = getShopItem();
         shopRecyclerView = findViewById(R.id.shop_recycler_view);
         shopRecyclerAdapter = new ShopRecyclerAdapter(this, this, dataList);
-        shopRecyclerAdapter.setItemSize(new ScreenProportion(this).getItemSize((float) 2.8));
+        shopRecyclerAdapter.setItemSize(new ScreenProportion(this).getItemWidthSize((float) 2.8));
         gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override

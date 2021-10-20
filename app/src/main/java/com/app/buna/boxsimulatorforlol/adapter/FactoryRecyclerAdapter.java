@@ -518,6 +518,61 @@ public class FactoryRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         }
     }
 
+
+    private void getOpenGameRewardItem(){
+        getResultTextView.setText(context.getString(R.string.reward_result_text));
+
+        int itemProbability = new Random().nextInt(7);
+        Glide.with(context).load(context.getResources().getDrawable(R.drawable.fragment_champ_background)).into(boxBorderImage);
+        int rewardCount;
+
+        switch (itemProbability){
+            case 0:
+            case 1:
+            case 2:
+                rewardCount = new Random().nextInt(3) + 2;
+
+                boxResultImage.setImageResource(R.drawable.item_box_and_key);
+                resultTypeText.setText(context.getString(R.string.ad_reward_type, rewardCount));
+                resultNameText.setText(context.getString(R.string.ad_reward_0));
+                itemManager.addBoxCount(rewardCount);
+                itemManager.addKeyCount(rewardCount);
+                break;
+            case 3:
+                rewardCount = new Random().nextInt(2) + 1;
+
+                boxResultImage.setImageResource(R.drawable.reward_item_icon);
+                resultTypeText.setText(context.getString(R.string.ad_reward_type, rewardCount));
+                resultNameText.setText(context.getString(R.string.ad_reward_1));
+                itemManager.addRewardItem(rewardCount);
+                break;
+            case 4:
+                rewardCount = new Random().nextInt(300) + 150;
+
+                boxResultImage.setImageResource(R.drawable.item_blue_gem);
+                resultTypeText.setText(context.getString(R.string.ad_reward_type, rewardCount));
+                resultNameText.setText(context.getString(R.string.ad_reward_2));
+                itemManager.addBlueGemCount(rewardCount);
+                break;
+            case 5:
+                rewardCount = new Random().nextInt(300) + 150;
+
+                boxResultImage.setImageResource(R.drawable.item_yellow_gem);
+                resultTypeText.setText(context.getString(R.string.ad_reward_type, rewardCount));
+                resultNameText.setText(context.getString(R.string.ad_reward_3));
+                itemManager.addYellowGemCount(rewardCount);
+                break;
+            case 6:
+                rewardCount = new Random().nextInt(450) + 300;
+
+                boxResultImage.setImageResource(R.drawable.gold_reward_icon);
+                resultTypeText.setText(context.getString(R.string.ad_reward_type, rewardCount));
+                resultNameText.setText(context.getString(R.string.ad_reward_4));
+                goldManager.addGold(rewardCount);
+                break;
+        }
+    }
+
     private void getOpenResultToDB(){
         new Handler().post(new Runnable() {
             @Override
@@ -769,6 +824,43 @@ public class FactoryRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                                 boxOpenDialog.cancel();
                                 itemManager.setRewardItemCount(itemManager.getRewardItemCount()-1);
                                 getOpenRewardItem();
+                                boxResultDialog.show();
+                            }
+                        }, 2850);
+                    }
+                });
+            }
+        }/* 스폐셜 보석 클릭시 */
+        else if(itemCode == ItemCode.GAME_SPEICAL_ITEM){
+            Glide.with(context).load(R.drawable.game_reward).into(boxImageView);
+            boxImageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_factory_reward));
+
+            boxOpenButton.setVisibility(View.VISIBLE);
+            boxOpenCloseButton.setVisibility(View.VISIBLE);
+            boxAllOpenButton.setVisibility(GONE);
+            boxOpenButton.setEnabled(false);
+            openTextView.setTextColor(context.getResources().getColor(R.color.button_disabled_text_color));
+
+            if(itemManager.getGameRewardItemCount() > 0){
+                boxOpenButton.setEnabled(true);
+                openTextView.setTextColor(context.getResources().getColor(R.color.item_price_color));
+
+                boxOpenButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        boxImageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_factory_open_reward));
+                        soundManager.play(boxDialogOpenSoundId);
+                        boxOpenButton.setVisibility(GONE);
+                        boxAllOpenButton.setVisibility(GONE);
+                        boxOpenCloseButton.setVisibility(GONE);
+
+                        count = 1;
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                boxOpenDialog.cancel();
+                                itemManager.setGameRewardItemCount(itemManager.getGameRewardItemCount()-1);
+                                getOpenGameRewardItem();
                                 boxResultDialog.show();
                             }
                         }, 2850);
@@ -1169,6 +1261,18 @@ public class FactoryRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 });
                 /* reward item */
             }else if(data.getItemCode() == ItemCode.REWARD_ITEM) {
+                Glide.with(context).load(data.getItemResId()).into(fragItemImage);
+                fragLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(!boxOpenDialog.isShowing() && !isForging){
+                            soundManager.play(boxDialogOpenSoundId);
+                            loadMaterialImage(data.getItemCode());
+                            boxOpenDialog.show();
+                        }
+                    }
+                });
+            }else if(data.getItemCode() == ItemCode.GAME_SPEICAL_ITEM){
                 Glide.with(context).load(data.getItemResId()).into(fragItemImage);
                 fragLayout.setOnClickListener(new View.OnClickListener() {
                     @Override

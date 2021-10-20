@@ -9,7 +9,7 @@ public class TransferData {
 
     private float gold, goldPerClick, goldPerSec;
     private int blueGem, yellowGem;
-    private int box, key, rewardItem;
+    private int box, key, rewardItem, gameRewardItem=0;
     private int boxBoughtCount, keyBoughtCount;
     private float bluegemChance, yellowgemChance;
     private Map<String, ItemFragment> champFragData, skinFragData;
@@ -27,7 +27,7 @@ public class TransferData {
             , int boxBoughtCount, int keyBoughtCount, float bluegemChance, float yellowgemChance
             , Map<String, ItemFragment> champFragData, Map<String, ItemFragment> skinFragData
             , Map<String, CollectData> champData, Map<String, CollectData> skinData
-            , Map<String, Integer> skillLevel){
+            , Map<String, Integer> skillLevel, int gameRewardItem){
         this.gold = gold;
         this.goldPerClick = goldPerClick;
         this.goldPerSec = goldPerSec;
@@ -45,6 +45,7 @@ public class TransferData {
         this.champData = champData;
         this.skinData = skinData;
         this.skillLevel = skillLevel;
+        this.gameRewardItem = gameRewardItem;
     }
 
     /*public TransferData(float gold, float goldPerClick, float goldPerSec
@@ -92,6 +93,7 @@ public class TransferData {
         result.put("champData", champData);
         result.put("skinData", skinData);
         result.put("skillLevel", skillLevel);
+        result.put("gameRewardItem", gameRewardItem);
     //    result.put("AID", AID);
 
         return result;
@@ -151,6 +153,14 @@ public class TransferData {
 
     public void setKey(int key) {
         this.key = key;
+    }
+
+    public int getGameRewardItem() {
+        return gameRewardItem;
+    }
+
+    public void setGameRewardItem(int gameRewardItem) {
+        this.gameRewardItem = gameRewardItem;
     }
 
     public int getRewardItem() {
