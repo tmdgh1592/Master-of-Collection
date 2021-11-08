@@ -34,7 +34,13 @@
 
 + [기술 스택] - Android, Java, Firebase, Glide
 
-+ [기타] - League of Legends의 Open Resources를 활용하여 개발
++ [기타] - League of Legends의 Open Resources를 활용하여 개발<br/><br/>
+
+
+![ezgif-4-0169aedb9d18](https://user-images.githubusercontent.com/56534241/140687824-44ef8946-2acb-47d5-8573-ce77a4b4b44e.gif)
+![ezgif-4-fd4da31007e1](https://user-images.githubusercontent.com/56534241/140687825-9f557f77-365f-43bb-b248-9fd098388706.gif)
+![ezgif-4-bf27b38ccd37](https://user-images.githubusercontent.com/56534241/140687827-06ff3485-8362-4e5f-a9b3-e8d9d97f4c05.gif)
+
 
 <br/>
 <br/>
